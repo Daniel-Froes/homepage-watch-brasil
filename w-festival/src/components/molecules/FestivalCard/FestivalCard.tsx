@@ -1,24 +1,52 @@
 import React from 'react'
+import Image from 'next/image'
 
 interface FestivalCardProps {
   title: string
   subtitle: string
   background: string
   textColor: string
+  svgSrc?: string
+  isWide?: boolean
+  imageSrc?: string
 }
 
-export default function FestivalCard({ title, subtitle, background, textColor }: FestivalCardProps) {
+export default function FestivalCard({ 
+  title, 
+  subtitle, 
+  background, 
+  textColor,
+  svgSrc,
+  isWide = false,
+  imageSrc
+}: FestivalCardProps) {
+  const sizeClasses = isWide ? 'w-[440px] h-52' : 'w-52 h-52'
+  const borderRadius = isWide ? 'rounded-watch-lg' : 'rounded-watch-lg'
+
   return (
     <div 
-      className="w-40 h-40 rounded-watch-lg flex flex-col items-start justify-end p-watch-6 cursor-pointer transition-transform hover:scale-105"
+      className={`${sizeClasses} ${borderRadius} flex flex-col items-start justify-end p-watch-6 cursor-pointer border-4 border-watch-bg-primary hover:border-watch-primary relative overflow-hidden transition-colors duration-300`}
       style={{ background }}
     >
-      <h3 className="text-3xl font-bold" style={{ color: textColor }}>
-        {title}
-      </h3>
-      <p className="text-lg opacity-80" style={{ color: textColor }}>
-        {subtitle}
-      </p>
+      {imageSrc ? (
+        <div className="absolute inset-0">
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            className="object-cover"
+          />
+        </div>
+      ) : svgSrc ? (
+        <div className="absolute inset-0">
+          <Image
+            src={svgSrc}
+            alt={title}
+            fill
+            className="object-none"
+          />
+        </div>
+      ) : null}
     </div>
   )
 }

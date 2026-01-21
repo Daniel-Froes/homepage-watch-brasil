@@ -22,9 +22,9 @@ export default function FestivalSlider({ festivals }: FestivalSliderProps) {
   return (
     <Section background="watch-bg-secondary" padding="lg">
       <Container>
-        <div className="flex gap-watch-8 items-center">
+        <div className="flex flex-col md:flex-row md:gap-watch-8 md:items-center gap-watch-6">
           {/* Texto fixo à esquerda */}
-          <div className="flex-shrink-0 w-48">
+          <div className="flex-shrink-0 md:w-48">
             <h2 className="text-white text-2xl font-bold mb-watch-4">
               Festival for you
             </h2>
@@ -46,6 +46,9 @@ export default function FestivalSlider({ festivals }: FestivalSliderProps) {
                     subtitle={festival.subtitle}
                     background={festival.background}
                     textColor={festival.textColor}
+                    svgSrc={festival.svgSrc}
+                    isWide={festival.isWide}
+                    imageSrc={festival.imageSrc}
                   />
                 </div>
               ))}

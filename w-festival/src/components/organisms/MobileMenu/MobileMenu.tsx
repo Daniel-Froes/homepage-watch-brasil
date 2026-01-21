@@ -1,7 +1,9 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { X } from 'lucide-react'
 import NavItem from '../../molecules/NavItem/NavItem'
+import Logo from '../../atoms/Logo/Logo'
 
 interface NavItemType {
   href: string
@@ -15,13 +17,17 @@ interface MobileMenuProps {
   isOpen: boolean
   items: NavItemType[]
   onClose: () => void
+  logoSrc?: string
+  logoAlt?: string
   className?: string
 }
 
 export default function MobileMenu({ 
   isOpen, 
   items, 
-  onClose, 
+  onClose,
+  logoSrc = '/logo.svg',
+  logoAlt = 'Watch',
   className = '' 
 }: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null)
@@ -56,20 +62,31 @@ export default function MobileMenu({
   
   return (
     <>
-      {/* Overlay */}
-      <div 
-        className="fixed inset-0 bg-watch-overlay-dark backdrop-blur-sm z-40 md:hidden"
-        onClick={onClose}
-      />
-      
       {/* Menu */}
       <div 
         ref={menuRef}
-        className={`fixed top-0 right-0 h-full w-watch-80 max-w-[85vw] bg-watch-gray-900 shadow-xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed top-0 left-0 w-full h-[50vh] bg-watch-bg-primary shadow-xl z-50 transform transition-all duration-700 ease-out md:hidden flex flex-col ${
+          isOpen ? 'translate-y-0' : '-translate-y-full'
         } ${className}`}
       >
-        <nav className="flex flex-col p-watch-6 pt-watch-20 space-y-watch-2">
+        {/* Header com Logo e Fechar - Fixo */}
+        <div className="sticky top-0 flex items-center justify-between py-watch-6 border-b border-white/10 bg-watch-bg-primary">
+          <Logo 
+            src={logoSrc} 
+            alt={logoAlt}
+            width={160}
+            height={47}
+          />
+          <button
+            onClick={onClose}
+            className="p-watch-2 hover:bg-white/10 rounded transition-colors"
+            aria-label="Close menu"
+          >
+            <X size={24} className="text-watch-orange" />
+          </button>
+        </div>
+
+        <nav className="flex flex-col p-watch-6 space-y-watch-2 overflow-y-auto">
           {items.map((item) => (
             <NavItem
               key={item.href}

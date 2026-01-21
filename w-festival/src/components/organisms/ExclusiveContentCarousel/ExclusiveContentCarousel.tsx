@@ -45,7 +45,7 @@ export default function ExclusiveContentCarousel({
       </Container>
 
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-0">
+        <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-watch-6 md:px-0">
           {items.map((item) => (
             <div
               key={item.id}

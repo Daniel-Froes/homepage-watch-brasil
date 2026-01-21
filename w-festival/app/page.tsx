@@ -24,15 +24,15 @@ export default function Home() {
 
       <LiveEventCarousel events={inLiveShows} />
 
-      <ArtistCarousel items={yesterdayShows} title="Yesterday Shows" showAd={false} />
+      <ArtistCarousel items={yesterdayShows} title="Yesterday Shows" showAd={false} showTitleMargin={false} />
 
       <ExclusiveContentCarousel items={exclusiveContent} />
 
-      <ArtistCarousel items={artists} title="Rock Singers" />
+      <ArtistCarousel items={artists} title="Rock Singers" showTitleMargin={false} />
 
       <AdCarousel ads={ads} />
 
-      <ArtistCarousel items={artists} title="Watch Again" />
+      <ArtistCarousel items={artists} title="Watch Again" showTitleMargin={false} />
     </div>
   );
 }

@@ -19,6 +19,7 @@ interface ArtistCarouselProps {
   title?: string
   showAd?: boolean
   adPosition?: number
+  showTitleMargin?: boolean
 }
 
 export default function ArtistCarousel({
@@ -26,6 +27,7 @@ export default function ArtistCarousel({
   title = 'Artists',
   showAd = true,
   adPosition = 5,
+  showTitleMargin = false,
 }: ArtistCarouselProps) {
   const [emblaRef] = useEmblaCarousel({
     loop: false,
@@ -51,7 +53,7 @@ export default function ArtistCarousel({
   return (
     <Section background="watch-bg-primary" padding="md">
       <Container>
-        <div className="mb-watch-6 text-2xl lg:pt-watch-24">
+        <div className={`text-2xl lg:pt-watch-24 ${showTitleMargin ? 'mb-watch-6' : ''}`}>
           <Heading level={2} className="text-white">
             {title}
           </Heading>
@@ -59,7 +61,7 @@ export default function ArtistCarousel({
       </Container>
 
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-0">
+        <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-watch-6 md:px-0">
           {displayItems.map((item) => (
             <div key={item.id} className="flex-[0_0_auto]">
               {item.isAd ? (

@@ -10,24 +10,24 @@ export interface Ad {
 
 export const ads: Ad[] = [
   {
-    id: 'heineken',
-    image: '/heineken.svg',
+    id: 'heineken-1',
+    image: '/heineken.png',
     title: 'Heineken',
     subtitle: 'Patrocinador Oficial',
     ctaText: 'Saiba Mais'
   },
   {
-    id: 'cocacola',
-    image: '/cocacola.svg',
-    title: 'Coca-Cola',
-    subtitle: 'Bebida Oficial',
-    ctaText: 'Confira'
+    id: 'heineken-2',
+    image: '/heineken.png',
+    title: 'Heineken',
+    subtitle: 'Patrocinador Oficial',
+    ctaText: 'Saiba Mais'
   },
   {
-    id: 'tesla',
-    image: '/tesla.png',
-    title: 'Tesla',
-    subtitle: 'Tecnologia & Inovação',
-    ctaText: 'Explore'
+    id: 'heineken-3',
+    image: '/heineken.png',
+    title: 'Heineken',
+    subtitle: 'Patrocinador Oficial',
+    ctaText: 'Saiba Mais'
   }
 ]

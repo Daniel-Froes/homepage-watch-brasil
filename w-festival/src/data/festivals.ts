@@ -5,6 +5,9 @@ export interface Festival {
   background: string
   textColor: string
   image?: string
+  svgSrc?: string
+  isWide?: boolean
+  imageSrc?: string
 }
 
 export const festivals: Festival[] = [
@@ -14,7 +17,8 @@ export const festivals: Festival[] = [
     subtitle: 'Festival',
     background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
     textColor: 'white',
-    image: '/ironmaiden.png'
+    image: '/ironmaiden.png',
+    svgSrc: '/rock.svg'
   },
   {
     id: 'pop',
@@ -22,7 +26,8 @@ export const festivals: Festival[] = [
     subtitle: 'Festival',
     background: 'linear-gradient(135deg, #166534 0%, #22c55e 100%)',
     textColor: 'white',
-    image: '/dualipa.png'
+    image: '/dualipa.png',
+    svgSrc: '/pop.svg'
   },
   {
     id: 'airpods',
@@ -30,7 +35,9 @@ export const festivals: Festival[] = [
     subtitle: 'buy now',
     background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
     textColor: 'white',
-    image: '/tesla.png'
+    image: '/tesla.png',
+    imageSrc: '/airpod edit.png',
+    isWide: true
   },
   {
     id: 'funk',
@@ -38,7 +45,8 @@ export const festivals: Festival[] = [
     subtitle: 'Festival',
     background: 'linear-gradient(135deg, #7e22ce 0%, #a855f7 100%)',
     textColor: 'white',
-    image: '/racionais.png'
+    image: '/racionais.png',
+    svgSrc: '/funk.svg'
   },
   {
     id: 'jazz',

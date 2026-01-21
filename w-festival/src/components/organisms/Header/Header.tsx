@@ -54,7 +54,7 @@ export default function Header({
           <div className="flex items-center justify-between h-watch-20 pt-watch-6">
             <div className="flex items-center space-x-watch-8">
 
-              <div className="mb-watch-5">
+              <div>
                 <Logo 
                   src={logoSrc} 
                   alt={logoAlt}
@@ -86,6 +86,8 @@ export default function Header({
         isOpen={isMobileMenuOpen}
         items={navItems}
         onClose={closeMobileMenu}
+        logoSrc={logoSrc}
+        logoAlt={logoAlt}
       />
       
       <div className="h-watch-18" />
