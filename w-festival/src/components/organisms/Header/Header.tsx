@@ -8,12 +8,18 @@ import MobileMenu from '../MobileMenu/MobileMenu'
 import HamburgerButton from '../../molecules/HamburgerButton/HamburgerButton'
 import UserProfile from '../../molecules/UserProfile/UserProfile'
 
+interface DropdownItem {
+  label: string
+  href: string
+}
+
 interface NavItemType {
   href: string
   label: string
   icon?: React.ReactNode
   isActive?: boolean
   hasDropdown?: boolean
+  dropdownItems?: DropdownItem[]
 }
 
 interface HeaderProps {
@@ -25,9 +31,39 @@ interface HeaderProps {
 
 const defaultNavItems: NavItemType[] = [
   { href: '/', label: 'Home', icon: <Home size={16} />, isActive: true },
-  { href: '/live', label: 'Live', icon: <Radio size={16} /> },
-  { href: '/musical-styles', label: 'Musical Styles', icon: <AudioLines size={16} /> },
-  { href: '/exclusive-content', label: 'Exclusive Content', icon: <SparklesIcon size={16} />, hasDropdown: true }
+  { href: '#in-live', label: 'Live', icon: <Radio size={16} /> },
+  { 
+    href: '#festivals', 
+    label: 'Musical Styles', 
+    icon: <AudioLines size={16} />, 
+    hasDropdown: true,
+    dropdownItems: [
+      { label: 'Rock', href: '#festivals' },
+      { label: 'Pop', href: '#festivals' },
+      { label: 'Funk', href: '#festivals' },
+      { label: 'Jazz', href: '#festivals' },
+      { label: 'EDM', href: '#festivals' },
+      { label: 'Indie', href: '#festivals' },
+      { label: 'Metal', href: '#festivals' },
+      { label: 'Alternative', href: '#festivals' }
+    ]
+  },
+  { 
+    href: '#exclusive', 
+    label: 'Exclusive Content', 
+    icon: <SparklesIcon size={16} />, 
+    hasDropdown: true,
+    dropdownItems: [
+      { label: 'Back Stage', href: '#exclusive' },
+      { label: 'Interviews', href: '#exclusive' },
+      { label: 'Behind The Scenes', href: '#exclusive' },
+      { label: 'Artist Spotlight', href: '#exclusive' },
+      { label: 'VIP Access', href: '#exclusive' },
+      { label: 'Meet & Greet', href: '#exclusive' },
+      { label: 'Soundcheck Sessions', href: '#exclusive' },
+      { label: 'Documentary', href: '#exclusive' }
+    ]
+  }
 ]
 
 export default function Header({ 

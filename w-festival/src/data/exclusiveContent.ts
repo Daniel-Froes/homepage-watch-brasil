@@ -43,5 +43,47 @@ export const exclusiveContent: ExclusiveContent[] = [
     title: 'Artist Spotlight',
     subtitle: 'Festival',
     image: '/ritaora.png'
+  },
+  {
+    id: 'exclusive-6',
+    title: 'VIP Access',
+    subtitle: 'Festival',
+    image: '/alok.png'
+  },
+  {
+    id: 'exclusive-7',
+    title: 'Meet & Greet',
+    subtitle: 'Festival',
+    image: '/colplay.png'
+  },
+  {
+    id: 'exclusive-8',
+    title: 'Soundcheck Sessions',
+    subtitle: 'Festival',
+    image: '/offsprint.png'
+  },
+  {
+    id: 'exclusive-9',
+    title: 'Documentary',
+    subtitle: 'Festival',
+    image: '/marshmallow.png'
+  },
+  {
+    id: 'exclusive-10',
+    title: 'Photo Gallery',
+    subtitle: 'Festival',
+    image: '/dreamtheate.png'
+  },
+  {
+    id: 'exclusive-11',
+    title: 'Back Stage',
+    subtitle: 'Festival',
+    image: '/ironmaiden.png'
+  },
+  {
+    id: 'exclusive-12',
+    title: 'Exclusive Merch',
+    subtitle: 'Festival',
+    image: '/racionais.png'
   }
 ]

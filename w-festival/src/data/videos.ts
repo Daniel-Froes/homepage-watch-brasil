@@ -75,6 +75,48 @@ export const yesterdayShows: ShowData[] = [
     image: '/maneskin.png',
     stage: 'Stage Fiesta',
     time: 'dJ.rum.ua - 00:00h'
+  },
+  {
+    id: '7',
+    name: 'Coldplay',
+    image: '/colplay.png',
+    stage: 'Stage Sunset',
+    time: 'dJ.rum.ua - 00:00h'
+  },
+  {
+    id: '8',
+    name: 'The Offspring',
+    image: '/offsprint.png',
+    stage: 'Stage World',
+    time: 'dJ.rum.ua - 00:00h'
+  },
+  {
+    id: '9',
+    name: 'Iron Maiden',
+    image: '/ironmaiden.png',
+    stage: 'Stage Sunset',
+    time: 'dJ.rum.ua - 00:00h'
+  },
+  {
+    id: '10',
+    name: 'Racionais MC\'s',
+    image: '/racionais.png',
+    stage: 'Stage World',
+    time: 'dJ.rum.ua - 00:00h'
+  },
+  {
+    id: '11',
+    name: 'Marshmello',
+    image: '/marshmallow.png',
+    stage: 'Stage Fiesta',
+    time: 'dJ.rum.ua - 00:00h'
+  },
+  {
+    id: '12',
+    name: 'Alok',
+    image: '/alok.png',
+    stage: 'Stage World',
+    time: 'dJ.rum.ua - 00:00h'
   }
 ]
 
@@ -99,6 +141,78 @@ export const inLiveShows: LiveShowData[] = [
     id: 'live-3',
     artist: 'Måneskin',
     image: '/maneskin.png',
+    stage: 'Stage Fiesta',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-4',
+    artist: 'Coldplay',
+    image: '/colplay.png',
+    stage: 'Stage Sunset',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-5',
+    artist: 'The Offspring',
+    image: '/offsprint.png',
+    stage: 'Stage World',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-6',
+    artist: 'Marshmello',
+    image: '/marshmallow.png',
+    stage: 'Stage Fiesta',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-7',
+    artist: 'Alok',
+    image: '/alok.png',
+    stage: 'Stage Sunset',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-8',
+    artist: 'Rita Ora',
+    image: '/ritaora.png',
+    stage: 'Stage World',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-9',
+    artist: 'Dream Theatre',
+    image: '/dreamtheate.png',
+    stage: 'Stage Fiesta',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-10',
+    artist: 'Racionais MC\'s',
+    image: '/racionais.png',
+    stage: 'Stage Sunset',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-11',
+    artist: 'Iron Maiden',
+    image: '/ironmaiden.png',
+    stage: 'Stage World',
+    time: 'dd.mm.aa - 00:00 h',
+    status: 'Live'
+  },
+  {
+    id: 'live-12',
+    artist: 'Dua Lipa',
+    image: '/dualipa.png',
     stage: 'Stage Fiesta',
     time: 'dd.mm.aa - 00:00 h',
     status: 'Live'

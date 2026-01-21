@@ -44,7 +44,7 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
   )
 
   return (
-    <Section background="watch-bg-secondary" padding="lg" className="md:py-watch-32">
+    <Section background="watch-bg-secondary" padding="lg">
       <Container>
         <div className="md:hidden w-full">
           <div className="overflow-hidden" ref={emblaRef}>

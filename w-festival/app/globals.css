@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Watch Brasil Festival - Design System */
 @theme {
   /* ===== COLORS ===== */

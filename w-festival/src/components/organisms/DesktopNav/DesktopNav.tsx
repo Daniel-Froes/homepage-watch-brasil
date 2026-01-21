@@ -1,12 +1,18 @@
 import NavItem from '../../molecules/NavItem/NavItem'
 import { ReactNode } from 'react'
 
+interface DropdownItem {
+  label: string
+  href: string
+}
+
 interface NavItemType {
   href: string
   label: string
   icon?: ReactNode
   isActive?: boolean
   hasDropdown?: boolean
+  dropdownItems?: DropdownItem[]
 }
 
 interface DesktopNavProps {
@@ -25,6 +31,7 @@ export default function DesktopNav({ items, className = '' }: DesktopNavProps) {
           icon={item.icon}
           isActive={item.isActive}
           hasDropdown={item.hasDropdown}
+          dropdownItems={item.dropdownItems}
         />
       ))}
     </nav>

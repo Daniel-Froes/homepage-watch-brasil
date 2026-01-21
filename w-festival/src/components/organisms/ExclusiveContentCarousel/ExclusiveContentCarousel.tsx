@@ -37,7 +37,7 @@ export default function ExclusiveContentCarousel({
   return (
     <Section background="watch-bg-primary" padding="md">
       <Container>
-        <div className="mb-watch-6 text-2xl lg:pt-watch-24">
+        <div className="mb-watch-6 text-2xl">
           <Heading level={2} className="text-white">
             {title}
           </Heading>

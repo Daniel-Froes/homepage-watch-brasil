@@ -19,7 +19,7 @@ interface ArtistCarouselProps {
   title?: string
   showAd?: boolean
   adPosition?: number
-  showTitleMargin?: boolean
+  showTitlePadding?: boolean
 }
 
 export default function ArtistCarousel({
@@ -27,7 +27,7 @@ export default function ArtistCarousel({
   title = 'Artists',
   showAd = true,
   adPosition = 5,
-  showTitleMargin = false,
+  showTitlePadding = false,
 }: ArtistCarouselProps) {
   const [emblaRef] = useEmblaCarousel({
     loop: false,
@@ -53,7 +53,7 @@ export default function ArtistCarousel({
   return (
     <Section background="watch-bg-primary" padding="md">
       <Container>
-        <div className={`text-2xl lg:pt-watch-24 ${showTitleMargin ? 'mb-watch-6' : ''}`}>
+        <div className={`text-2xl ${showTitlePadding ? 'lg:pt-watch-24' : ''} mb-watch-6`}>
           <Heading level={2} className="text-white">
             {title}
           </Heading>

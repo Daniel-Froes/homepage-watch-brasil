@@ -3,7 +3,6 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import FestivalCard from '../../molecules/FestivalCard'
 import Section from '../../molecules/Section'
-import Container from '../../atoms/Layout/Container'
 import Button from '../../atoms/Button'
 import { Festival } from '@/src/data/festivals'
 
@@ -20,24 +19,22 @@ export default function FestivalSlider({ festivals }: FestivalSliderProps) {
   })
 
   return (
-    <Section background="watch-bg-secondary" padding="lg">
-      <Container>
-        <div className="flex flex-col md:flex-row md:gap-watch-8 md:items-center gap-watch-6">
-          {/* Texto fixo à esquerda */}
-          <div className="flex-shrink-0 md:w-48">
-            <h2 className="text-white text-2xl font-bold mb-watch-4">
-              Festival for you
-            </h2>
-            <p className="text-white/70 text-sm mb-watch-6">
-              Explore your favorite genres and discover new rhythms to love!
-            </p>
-            <Button variant="orange" size="sm">
-              See All
-            </Button>
-          </div>
+    <Section background="watch-bg-secondary" padding="lg" className='overflow-hidden'>
+      <div className="flex flex-col md:flex-row gap-watch-6 items-start md:items-center max-w-332 2xl:max-w-408 mx-auto px-watch-6 md:px-0">
+        <div className="shrink-0 md:w-64">
+          <h2 className="text-white text-2xl font-bold mb-watch-4">
+            Festival for you
+          </h2>
+          <p className="text-white/70 text-sm mb-watch-6">
+            Explore your favorite genres and discover new rhythms to love!
+          </p>
+          <Button variant="orange" size="sm">
+            See All
+          </Button>
+        </div>
 
-          {/* Carrossel de cards */}
-          <div className="flex-1 overflow-hidden" ref={emblaRef}>
+        <div className="flex-1 w-full">
+          <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-watch-4">
               {festivals.map((festival) => (
                 <div key={festival.id} className="flex-[0_0_auto]">
@@ -55,7 +52,7 @@ export default function FestivalSlider({ festivals }: FestivalSliderProps) {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </Section>
   )
 }

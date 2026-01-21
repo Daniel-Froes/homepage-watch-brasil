@@ -16,23 +16,29 @@ export default function Home() {
         status={featuredVideo.status}
         location={featuredVideo.location}
       />
-      <ArtistCarousel items={artists} title="Line Up" />
+      <ArtistCarousel items={artists} title="Line Up" showTitlePadding={true} />
 
-      <FestivalSlider festivals={festivals} />
-
-      <AdCarousel ads={ads} />
-
-      <LiveEventCarousel events={inLiveShows} />
-
-      <ArtistCarousel items={yesterdayShows} title="Yesterday Shows" showAd={false} showTitleMargin={false} />
-
-      <ExclusiveContentCarousel items={exclusiveContent} />
-
-      <ArtistCarousel items={artists} title="Rock Singers" showTitleMargin={false} />
+      <div id="festivals" className="scroll-mt-32">
+        <FestivalSlider festivals={festivals} />
+      </div>
 
       <AdCarousel ads={ads} />
 
-      <ArtistCarousel items={artists} title="Watch Again" showTitleMargin={false} />
+      <div id="in-live" className="scroll-mt-32">
+        <LiveEventCarousel events={inLiveShows} />
+      </div>
+
+      <ArtistCarousel items={yesterdayShows} title="Yesterday Shows" showAd={false} />
+
+      <div id="exclusive" className="scroll-mt-32">
+        <ExclusiveContentCarousel items={exclusiveContent} />
+      </div>
+
+      <ArtistCarousel items={artists} title="Rock Singers" />
+
+      <AdCarousel ads={ads} />
+
+      <ArtistCarousel items={artists} title="Watch Again" />
     </div>
   );
 }

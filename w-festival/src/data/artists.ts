@@ -54,5 +54,15 @@ export const artists: Artist[] = [
     id: '10',
     name: 'Racionais MC\'s',
     image: '/racionais.png'
+  },
+  {
+    id: '11',
+    name: 'Iron Maiden',
+    image: '/ironmaiden.png'
+  },
+  {
+    id: '12',
+    name: 'Alok',
+    image: '/alok.png'
   }
 ]
