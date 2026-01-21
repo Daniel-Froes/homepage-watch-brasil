@@ -7,64 +7,65 @@ import Section from '../../molecules/Section'
 import Heading from '../../atoms/Heading'
 import Container from '../../atoms/Layout/Container'
 
-interface Artist {
+interface Item {
   id: string
   name: string
   image: string
   isAd?: boolean
 }
 
-interface LineUpSliderProps {
-  artists: Artist[]
+interface ArtistCarouselProps {
+  items: Item[]
   title?: string
+  showAd?: boolean
+  adPosition?: number
 }
 
-export default function LineUpSlider({ artists, title = 'Line Up' }: LineUpSliderProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+export default function ArtistCarousel({
+  items,
+  title = 'Artists',
+  showAd = true,
+  adPosition = 5,
+}: ArtistCarouselProps) {
+  const [emblaRef] = useEmblaCarousel({
     loop: false,
     align: 'start',
     slidesToScroll: 1,
     skipSnaps: false,
-    dragFree: true
+    dragFree: true,
   })
 
-  const allItems = [
-    ...artists.slice(0, 5),
-    {
-      id: 'tesla-ad',
-      name: 'Tesla Ad',
-      image: '/tesla-ad.jpg',
-      isAd: true
-    },
-    ...artists.slice(5)
-  ]
+  const displayItems = showAd
+    ? [
+        ...items.slice(0, adPosition),
+        {
+          id: 'tesla-ad',
+          name: 'Tesla Ad',
+          image: '/tesla-ad.jpg',
+          isAd: true,
+        },
+        ...items.slice(adPosition),
+      ]
+    : items
 
   return (
     <Section background="watch-bg-primary" padding="md">
       <Container>
         <div className="mb-watch-6 text-2xl lg:pt-watch-24">
-          <Heading level={2} className="text-white">{title}</Heading>
+          <Heading level={2} className="text-white">
+            {title}
+          </Heading>
         </div>
       </Container>
-        
+
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-0">
-          {allItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex-[0_0_auto]"
-            >
+          {displayItems.map((item) => (
+            <div key={item.id} className="flex-[0_0_auto]">
               {item.isAd ? (
-                <AdCard
-                  imageSrc="/tesla.png"
-                  imageAlt="Tesla"
-                  imageOnly
-                />
+                <AdCard imageSrc="/tesla.png" imageAlt="Tesla" imageOnly />
               ) : (
-                <ArtistCard
-                  name={item.name}
-                  image={item.image}
-                />
+                <ArtistCard name={item.name} image={item.image} />
               )}
             </div>
           ))}

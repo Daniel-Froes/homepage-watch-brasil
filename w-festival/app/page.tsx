@@ -1,6 +1,10 @@
 import VideoHero from '../src/components/organisms/VideoHero'
-import LineUpSlider from '../src/components/organisms/LineUpSlider'
-import { artists, featuredVideo } from '../src/data'
+import ArtistCarousel from '../src/components/organisms/ArtistCarousel'
+import FestivalSlider from '../src/components/organisms/FestivalSlider'
+import AdCarousel from '../src/components/organisms/AdCarousel'
+import LiveEventCarousel from '../src/components/organisms/LiveEventCarousel'
+import ExclusiveContentCarousel from '../src/components/organisms/ExclusiveContentCarousel'
+import { artists, featuredVideo, festivals, ads, inLiveShows, yesterdayShows, exclusiveContent } from '../src/data'
 
 export default function Home() {
   return (
@@ -12,8 +16,23 @@ export default function Home() {
         status={featuredVideo.status}
         location={featuredVideo.location}
       />
+      <ArtistCarousel items={artists} title="Line Up" />
 
-      <LineUpSlider artists={artists} />
+      <FestivalSlider festivals={festivals} />
+
+      <AdCarousel ads={ads} />
+
+      <LiveEventCarousel events={inLiveShows} />
+
+      <ArtistCarousel items={yesterdayShows} title="Yesterday Shows" showAd={false} />
+
+      <ExclusiveContentCarousel items={exclusiveContent} />
+
+      <ArtistCarousel items={artists} title="Rock Singers" />
+
+      <AdCarousel ads={ads} />
+
+      <ArtistCarousel items={artists} title="Watch Again" />
     </div>
   );
 }

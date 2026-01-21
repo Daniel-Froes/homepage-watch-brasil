@@ -2,25 +2,25 @@
 
 import useEmblaCarousel from 'embla-carousel-react'
 import ArtistCard from '../../molecules/ArtistCard'
-import AdCard from '../../molecules/AdCard'
 import Section from '../../molecules/Section'
 import Heading from '../../atoms/Heading'
 import Container from '../../atoms/Layout/Container'
+import Text from '../../atoms/Text'
 
-interface Artist {
+interface ShowData {
   id: string
   name: string
   image: string
-  isAd?: boolean
+  stage: string
+  time: string
 }
 
-interface LineUpSliderProps {
-  artists: Artist[]
-  title?: string
+interface YesterdayShowsSliderProps {
+  shows: ShowData[]
 }
 
-export default function LineUpSlider({ artists, title = 'Line Up' }: LineUpSliderProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+export default function YesterdayShowsSlider({ shows }: YesterdayShowsSliderProps) {
+  const [emblaRef] = useEmblaCarousel({ 
     loop: false,
     align: 'start',
     slidesToScroll: 1,
@@ -28,44 +28,31 @@ export default function LineUpSlider({ artists, title = 'Line Up' }: LineUpSlide
     dragFree: true
   })
 
-  const allItems = [
-    ...artists.slice(0, 5),
-    {
-      id: 'tesla-ad',
-      name: 'Tesla Ad',
-      image: '/tesla-ad.jpg',
-      isAd: true
-    },
-    ...artists.slice(5)
-  ]
-
   return (
     <Section background="watch-bg-primary" padding="md">
       <Container>
         <div className="mb-watch-6 text-2xl lg:pt-watch-24">
-          <Heading level={2} className="text-white">{title}</Heading>
+          <Heading level={2} className="text-white">Yesterday Shows</Heading>
         </div>
       </Container>
         
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-0">
-          {allItems.map((item) => (
+          {shows.map((show) => (
             <div
-              key={item.id}
+              key={show.id}
               className="flex-[0_0_auto]"
             >
-              {item.isAd ? (
-                <AdCard
-                  imageSrc="/tesla.png"
-                  imageAlt="Tesla"
-                  imageOnly
-                />
-              ) : (
+              <div className="relative">
                 <ArtistCard
-                  name={item.name}
-                  image={item.image}
+                  name={show.name}
+                  image={show.image}
                 />
-              )}
+                <div className="mt-watch-2 text-center">
+                  <Text className="text-white text-xs">{show.stage}</Text>
+                  <Text className="text-white/70 text-xs">{show.time}</Text>
+                </div>
+              </div>
             </div>
           ))}
         </div>

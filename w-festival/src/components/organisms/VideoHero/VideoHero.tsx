@@ -4,6 +4,7 @@ import { Grid2X2, Maximize, Volume2, Settings, VideoOff, Video } from 'lucide-re
 import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
 import Button from '../../atoms/Button'
+import Container from '../../atoms/Layout/Container'
 
 interface VideoHeroProps {
   videoSrc: string
@@ -50,23 +51,24 @@ export default function VideoHero({
       
       <div className="relative z-20 flex flex-col justify-between h-full">
         <div className="flex-1 flex items-start justify-start pt-watch-20 md:pt-watch-24">
-          <div className="container mx-auto px-watch-4 md:px-watch-8">
-            <div className="text-white">
-              <Text variant="h3" weight="bold" className="mb-watch-2 md:mb-watch-4 text-watch-2xl md:text-watch-4xl lg:text-watch-5xl xl:text-watch-6xl">
+          <Container className="pt-watch-16">
+            <div className="text-watch-white ml-watch-4">
+              <Text variant="h3" weight="bold" className="mb-watch-2 text-3xl">
                 {title}
               </Text>
-              <div className="flex flex-wrap items-center gap-watch-2 md:gap-watch-4 uppercase tracking-wider text-watch-xs md:text-watch-sm">
-                <Text variant="p" size="sm" className="text-white px-watch-2 py-watch-1 rounded">{status}</Text>
+              <div className="flex flex-wrap items-center gap-watch-2 tracking-wider text-sm font-normal">
+                <Text variant="p" size="sm" className="text-white rounded uppercase">{status}</Text>
+                <Text variant="p" size="sm">•</Text>
                 <Text variant="p" size="sm">{subtitle}</Text>
                 <Text variant="p" size="sm">•</Text>
                 <Text variant="p" size="sm">{location}</Text>
               </div>
             </div>
-          </div>
+          </Container>
         </div>
         
         <div className="p-watch-4 md:p-watch-8">
-          <div className="container mx-auto">
+          <Container>
             <div className="flex flex-col md:flex-row items-center justify-between gap-watch-4">
               <div className="flex items-center gap-watch-2 md:gap-watch-4 w-full md:w-auto">
                 <Button 
@@ -96,7 +98,7 @@ export default function VideoHero({
                 </Button>
               </div>
             </div>
-          </div>
+          </Container>
         </div>
       </div>
     </section>

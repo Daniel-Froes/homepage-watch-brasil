@@ -33,7 +33,7 @@ export default function AdCard({
   if (imageOnly && imageSrc) {
     return (
       <div 
-        className="relative overflow-hidden rounded-watch-lg cursor-pointer"
+        className="relative overflow-hidden rounded-watch-lg cursor-pointer border-4 border-transparent transition-all duration-300 hover:border-watch-primary"
         style={{
           width,
           height

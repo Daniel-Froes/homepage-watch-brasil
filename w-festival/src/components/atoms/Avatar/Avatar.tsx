@@ -19,11 +19,12 @@ export default function Avatar({
     lg: 'h-watch-12 w-watch-12'
   }
   
-  const baseClasses = 'rounded-watch-full bg-watch-gray-600 flex items-center justify-center overflow-hidden'
+  const baseClasses = 'rounded-watch-full flex items-center justify-center overflow-hidden'
+  const defaultBgColor = 'bg-[#E87E5F]'
   
   if (src) {
     return (
-      <div className={`${baseClasses} ${sizes[size]} ${className}`}>
+      <div className={`${baseClasses} ${sizes[size]} ${className || defaultBgColor}`}>
         <Image
           src={src}
           alt={alt}
@@ -34,10 +35,17 @@ export default function Avatar({
     )
   }
   
+  // Pega as iniciais do nome (primeira letra de cada palavra)
+  const initials = alt
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase())
+    .slice(0, 2)
+    .join('')
+  
   return (
-    <div className={`${baseClasses} ${sizes[size]} ${className}`}>
-      <span className="text-watch-sm font-watch-medium text-watch-text-white">
-        {alt.charAt(0).toUpperCase()}
+    <div className={`${baseClasses} ${sizes[size]} ${className || defaultBgColor}`}>
+      <span className="text-watch-sm font-watch-semibold text-white">
+        {initials}
       </span>
     </div>
   )

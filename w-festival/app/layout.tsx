@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "../src/components/organisms/Header";
+import Footer from "../src/components/organisms/Footer";
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${roboto.variable} antialiased`}>
+      <body className={`${roboto.className} antialiased`}>
         <Header 
           logoSrc="/logo.svg" 
           logoAlt="W Festival"
@@ -29,6 +30,10 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+        <Footer 
+          logoSrc="/logo.svg" 
+          logoAlt="W Festival"
+        />
       </body>
     </html>
   );

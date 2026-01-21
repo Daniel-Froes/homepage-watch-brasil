@@ -14,7 +14,7 @@ interface UserProfileProps {
 export default function UserProfile({ 
   name, 
   avatar, 
-  avatarColor = 'bg-orange-500',
+  avatarColor = 'bg-[#E87E5F]',
   showSettings = true,
   onSettingsClick,
   className = '' 

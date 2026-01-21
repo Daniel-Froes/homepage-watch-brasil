@@ -1,2 +1,5 @@
 export * from './artists'
 export * from './videos'
+export * from './festivals'
+export * from './ads'
+export * from './exclusiveContent'

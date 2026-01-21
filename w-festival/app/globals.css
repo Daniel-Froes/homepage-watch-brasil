@@ -83,6 +83,7 @@
   --spacing-watch-72: 18rem;
   --spacing-watch-80: 20rem;
   --spacing-watch-96: 24rem;
+  --spacing-watch-336: 21rem;
   
   
   /* ===== BORDER RADIUS ===== */
@@ -96,23 +97,6 @@
   --radius-watch-2xl: 1rem;
   --radius-watch-3xl: 1.5rem;
   --radius-watch-full: 9999px;
-  
-  
-  /* ===== FONT SIZES ===== */
-  
-  --font-size-watch-xs: 0.75rem;
-  --font-size-watch-sm: 0.875rem;
-  --font-size-watch-base: 1rem;
-  --font-size-watch-lg: 1.125rem;
-  --font-size-watch-xl: 1.25rem;
-  --font-size-watch-2xl: 1.5rem;
-  --font-size-watch-3xl: 1.875rem;
-  --font-size-watch-4xl: 2.25rem;
-  --font-size-watch-5xl: 3rem;
-  --font-size-watch-6xl: 3.75rem;
-  --font-size-watch-7xl: 4.5rem;
-  --font-size-watch-8xl: 6rem;
-  --font-size-watch-9xl: 8rem;
   
   
   /* ===== FONT WEIGHTS ===== */
@@ -132,4 +116,5 @@
 html, body {
   background-color: #1E1E22;
   color: #FFFFFF;
+  font-family: var(--font-roboto), sans-serif;
 }

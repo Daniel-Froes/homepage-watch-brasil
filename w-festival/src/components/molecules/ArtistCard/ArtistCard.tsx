@@ -19,7 +19,7 @@ export default function ArtistCard({
 }: ArtistCardProps) {
   return (
     <div 
-      className="relative overflow-hidden rounded-watch-lg group cursor-pointer"
+      className="relative overflow-hidden rounded-watch-lg group cursor-pointer border-4 border-transparent transition-all duration-300 hover:border-watch-primary"
       style={{
         width,
         height
@@ -30,7 +30,7 @@ export default function ArtistCard({
         src={image}
         alt={name}
         fallbackSrc={`https://via.placeholder.com/${width.replace('px', '')}x${height.replace('px', '')}/1f2937/white?text=${encodeURIComponent(name)}`}
-        className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+        className="w-full h-full"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
       <div className="absolute inset-0 mb-watch-12 flex items-end justify-center z-20">

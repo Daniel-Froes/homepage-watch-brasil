@@ -1,0 +1,51 @@
+export interface Festival {
+  id: string
+  title: string
+  subtitle: string
+  background: string
+  textColor: string
+  image?: string
+}
+
+export const festivals: Festival[] = [
+  {
+    id: 'rock',
+    title: 'Rock',
+    subtitle: 'Festival',
+    background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+    textColor: 'white',
+    image: '/ironmaiden.png'
+  },
+  {
+    id: 'pop',
+    title: 'Pop',
+    subtitle: 'Festival',
+    background: 'linear-gradient(135deg, #166534 0%, #22c55e 100%)',
+    textColor: 'white',
+    image: '/dualipa.png'
+  },
+  {
+    id: 'airpods',
+    title: 'AirPods Pro',
+    subtitle: 'buy now',
+    background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+    textColor: 'white',
+    image: '/tesla.png'
+  },
+  {
+    id: 'funk',
+    title: 'Funk',
+    subtitle: 'Festival',
+    background: 'linear-gradient(135deg, #7e22ce 0%, #a855f7 100%)',
+    textColor: 'white',
+    image: '/racionais.png'
+  },
+  {
+    id: 'jazz',
+    title: 'Jazz',
+    subtitle: 'Festival',
+    background: 'linear-gradient(135deg, #b45309 0%, #f59e0b 100%)',
+    textColor: 'white',
+    image: '/colplay.png'
+  }
+]
