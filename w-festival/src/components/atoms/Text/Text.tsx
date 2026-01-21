@@ -10,33 +10,33 @@ interface TextProps {
 }
 
 const sizeClasses = {
-  xs: 'text-xs',
-  sm: 'text-sm', 
-  md: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
-  '2xl': 'text-2xl',
-  '3xl': 'text-3xl',
-  '4xl': 'text-4xl',
-  '5xl': 'text-5xl',
-  '6xl': 'text-6xl',
+  xs: 'text-watch-xs',
+  sm: 'text-watch-sm', 
+  md: 'text-watch-base',
+  lg: 'text-watch-lg',
+  xl: 'text-watch-xl',
+  '2xl': 'text-watch-2xl',
+  '3xl': 'text-watch-3xl',
+  '4xl': 'text-watch-4xl',
+  '5xl': 'text-watch-5xl',
+  '6xl': 'text-watch-6xl',
   hero: 'text-[32px] leading-[120%] tracking-[-2%]'
 }
 
 const weightClasses = {
-  normal: 'font-normal',
-  medium: 'font-medium',
-  semibold: 'font-semibold',
-  bold: 'font-bold font-[700]',
-  extrabold: 'font-extrabold'
+  normal: 'font-watch-normal',
+  medium: 'font-watch-medium',
+  semibold: 'font-watch-semibold',
+  bold: 'font-watch-bold',
+  extrabold: 'font-watch-extrabold'
 }
 
 const colorClasses = {
-  white: 'text-white',
-  black: 'text-black',
-  gray: 'text-gray-400',
-  red: 'text-red-600',
-  orange: 'text-orange-600'
+  white: 'text-watch-text-white',
+  black: 'text-watch-text-black',
+  gray: 'text-watch-gray-400',
+  red: 'text-watch-secondary',
+  orange: 'text-watch-primary'
 }
 
 export default function Text({ 

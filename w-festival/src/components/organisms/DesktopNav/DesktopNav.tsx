@@ -16,7 +16,7 @@ interface DesktopNavProps {
 
 export default function DesktopNav({ items, className = '' }: DesktopNavProps) {
   return (
-    <nav className={`hidden lg:flex items-center space-x-2 ${className}`}>
+    <nav className={`hidden lg:flex items-center space-x-watch-2 ${className}`}>
       {items.map((item) => (
         <NavItem
           key={item.href}

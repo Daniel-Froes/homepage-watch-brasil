@@ -1,6 +1,6 @@
 'use client'
 
-import { Grid2X2, Maximize, Volume2, Settings, VideoOff } from 'lucide-react'
+import { Grid2X2, Maximize, Volume2, Settings, VideoOff, Video } from 'lucide-react'
 import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
 import Button from '../../atoms/Button'
@@ -36,17 +36,12 @@ export default function VideoHero({
             pointerEvents: 'none'
           }}
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-watch-overlay-medium"></div>
+        
+        <div className="absolute top-0 left-0 right-0 h-watch-32 z-10 bg-gradient-to-b from-watch-bg-primary via-watch-bg-primary/80 via-30% via-watch-bg-primary/40 via-60% to-transparent"></div>
         
         <div 
-          className="absolute top-0 left-0 right-0 h-32 z-10"
-          style={{
-            background: 'linear-gradient(to bottom, #1E1E22 0%, rgba(30, 30, 34, 0.8) 30%, rgba(30, 30, 34, 0.4) 60%, transparent 100%)'
-          }}
-        ></div>
-        
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-32 z-10"
+          className="absolute bottom-0 left-0 right-0 h-watch-32 z-10"
           style={{
             background: 'linear-gradient(to top, #1E1E22 0%, rgba(30, 30, 34, 0.8) 30%, rgba(30, 30, 34, 0.4) 60%, transparent 100%)'
           }}
@@ -54,14 +49,14 @@ export default function VideoHero({
       </div>
       
       <div className="relative z-20 flex flex-col justify-between h-full">
-        <div className="flex-1 flex items-start justify-start pt-20 md:pt-24">
-          <div className="container mx-auto px-4 md:px-8">
+        <div className="flex-1 flex items-start justify-start pt-watch-20 md:pt-watch-24">
+          <div className="container mx-auto px-watch-4 md:px-watch-8">
             <div className="text-white">
-              <Text variant="h3" weight="bold" className="mb-2 md:mb-4 text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
+              <Text variant="h3" weight="bold" className="mb-watch-2 md:mb-watch-4 text-watch-2xl md:text-watch-4xl lg:text-watch-5xl xl:text-watch-6xl">
                 {title}
               </Text>
-              <div className="flex flex-wrap items-center gap-2 md:gap-4 uppercase tracking-wider text-xs md:text-sm">
-                <Text variant="p" size="sm" className="text-white px-2 py-1 rounded">{status}</Text>
+              <div className="flex flex-wrap items-center gap-watch-2 md:gap-watch-4 uppercase tracking-wider text-watch-xs md:text-watch-sm">
+                <Text variant="p" size="sm" className="text-white px-watch-2 py-watch-1 rounded">{status}</Text>
                 <Text variant="p" size="sm">{subtitle}</Text>
                 <Text variant="p" size="sm">•</Text>
                 <Text variant="p" size="sm">{location}</Text>
@@ -70,23 +65,23 @@ export default function VideoHero({
           </div>
         </div>
         
-        <div className="p-4 md:p-8">
+        <div className="p-watch-4 md:p-watch-8">
           <div className="container mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-2 md:gap-4 w-full md:w-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-watch-4">
+              <div className="flex items-center gap-watch-2 md:gap-watch-4 w-full md:w-auto">
                 <Button 
                   variant="orange"
                   size="sm"
-                  icon={VideoOff}
+                  icon={Video}
                   radius="2xl"
-                  className="gap-1.5 w-full md:w-auto"
+                  className="gap-watch-1.5 w-full md:w-auto"
                 >
-                  <span className="hidden sm:inline">Close your camera</span>
-                  <span className="sm:hidden">Close camera</span>
+                  <span className="hidden sm:inline">Choose your camera</span>
+                  <span className="sm:hidden">Choose camera</span>
                 </Button>
               </div>
               
-              <div className="flex items-center gap-2 md:gap-4">
+              <div className="flex items-center gap-watch-2 md:gap-watch-4">
                 <Button variant="ghost">
                   <Icon icon={Grid2X2} />
                 </Button>

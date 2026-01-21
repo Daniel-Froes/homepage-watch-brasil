@@ -14,12 +14,12 @@ export default function Avatar({
   className = '' 
 }: AvatarProps) {
   const sizes = {
-    sm: 'h-8 w-8',
-    md: 'h-10 w-10',
-    lg: 'h-12 w-12'
+    sm: 'h-watch-8 w-watch-8',
+    md: 'h-watch-10 w-watch-10',
+    lg: 'h-watch-12 w-watch-12'
   }
   
-  const baseClasses = 'rounded-full bg-gray-600 flex items-center justify-center overflow-hidden'
+  const baseClasses = 'rounded-watch-full bg-watch-gray-600 flex items-center justify-center overflow-hidden'
   
   if (src) {
     return (
@@ -36,7 +36,7 @@ export default function Avatar({
   
   return (
     <div className={`${baseClasses} ${sizes[size]} ${className}`}>
-      <span className="text-sm font-medium text-white">
+      <span className="text-watch-sm font-watch-medium text-watch-text-white">
         {alt.charAt(0).toUpperCase()}
       </span>
     </div>

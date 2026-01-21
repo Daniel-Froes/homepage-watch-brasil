@@ -1,17 +1,135 @@
 @import "tailwindcss";
 
-/* Design Tokens */
+/* Watch Brasil Festival - Design System */
 @theme {
-  --color-background: #1E1E22;
-  --color-surface: #1A1A1A;
-  --color-primary: #E10600;
-
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A3A3A3;
+  /* ===== COLORS ===== */
+  
+  /* Background Colors */
+  --color-watch-bg-primary: #1E1E22;
+  --color-watch-bg-surface: #1A1A1A;
+  --color-watch-bg-surface-alt: #2B2B2E;
+  
+  /* Primary Brand Colors - Orange */
+  --color-watch-primary: #F97316;
+  --color-watch-primary-hover: #EA580C;
+  --color-watch-primary-light: #FB923C;
+  --color-watch-primary-dark: #C2410C;
+  
+  /* Secondary Colors - Red (accent) */
+  --color-watch-secondary: #DC2626;
+  --color-watch-secondary-dark: #991B1B;
+  --color-watch-secondary-light: #EF4444;
+  
+  /* Text Colors */
+  --color-watch-text-white: #FFFFFF;
+  --color-watch-text-primary: #FFFFFF;
+  --color-watch-text-secondary: #A3A3A3;
+  --color-watch-text-tertiary: #6B7280;
+  --color-watch-text-black: #000000;
+  
+  /* Gray Scale */
+  --color-watch-gray-400: #9CA3AF;
+  --color-watch-gray-600: #4B5563;
+  --color-watch-gray-700: #374151;
+  --color-watch-gray-800: #1F2937;
+  --color-watch-gray-900: #111827;
+  
+  /* Overlay Colors */
+  --color-watch-overlay-light: rgba(0, 0, 0, 0.1);
+  --color-watch-overlay-medium: rgba(0, 0, 0, 0.4);
+  --color-watch-overlay-dark: rgba(0, 0, 0, 0.5);
+  --color-watch-overlay-heavy: rgba(0, 0, 0, 0.8);
+  
+  /* White States */
+  --color-watch-white-10: rgba(255, 255, 255, 0.1);
+  --color-watch-white-20: rgba(255, 255, 255, 0.2);
+  --color-watch-white-80: rgba(255, 255, 255, 0.8);
+  
+  
+  /* ===== SPACING (Tailwind Scale) ===== */
+  
+  --spacing-watch-0: 0;
+  --spacing-watch-px: 1px;
+  --spacing-watch-0\.5: 0.125rem;
+  --spacing-watch-1: 0.25rem;
+  --spacing-watch-1\.5: 0.375rem;
+  --spacing-watch-2: 0.5rem;
+  --spacing-watch-2\.5: 0.625rem;
+  --spacing-watch-3: 0.75rem;
+  --spacing-watch-3\.5: 0.875rem;
+  --spacing-watch-4: 1rem;
+  --spacing-watch-5: 1.25rem;
+  --spacing-watch-6: 1.5rem;
+  --spacing-watch-7: 1.75rem;
+  --spacing-watch-8: 2rem;
+  --spacing-watch-9: 2.25rem;
+  --spacing-watch-10: 2.5rem;
+  --spacing-watch-11: 2.75rem;
+  --spacing-watch-12: 3rem;
+  --spacing-watch-14: 3.5rem;
+  --spacing-watch-16: 4rem;
+  --spacing-watch-20: 5rem;
+  --spacing-watch-24: 6rem;
+  --spacing-watch-28: 7rem;
+  --spacing-watch-32: 8rem;
+  --spacing-watch-36: 9rem;
+  --spacing-watch-40: 10rem;
+  --spacing-watch-44: 11rem;
+  --spacing-watch-48: 12rem;
+  --spacing-watch-52: 13rem;
+  --spacing-watch-56: 14rem;
+  --spacing-watch-60: 15rem;
+  --spacing-watch-64: 16rem;
+  --spacing-watch-72: 18rem;
+  --spacing-watch-80: 20rem;
+  --spacing-watch-96: 24rem;
+  
+  
+  /* ===== BORDER RADIUS ===== */
+  
+  --radius-watch-none: 0;
+  --radius-watch-sm: 0.125rem;
+  --radius-watch: 0.25rem;
+  --radius-watch-md: 0.375rem;
+  --radius-watch-lg: 0.5rem;
+  --radius-watch-xl: 0.75rem;
+  --radius-watch-2xl: 1rem;
+  --radius-watch-3xl: 1.5rem;
+  --radius-watch-full: 9999px;
+  
+  
+  /* ===== FONT SIZES ===== */
+  
+  --font-size-watch-xs: 0.75rem;
+  --font-size-watch-sm: 0.875rem;
+  --font-size-watch-base: 1rem;
+  --font-size-watch-lg: 1.125rem;
+  --font-size-watch-xl: 1.25rem;
+  --font-size-watch-2xl: 1.5rem;
+  --font-size-watch-3xl: 1.875rem;
+  --font-size-watch-4xl: 2.25rem;
+  --font-size-watch-5xl: 3rem;
+  --font-size-watch-6xl: 3.75rem;
+  --font-size-watch-7xl: 4.5rem;
+  --font-size-watch-8xl: 6rem;
+  --font-size-watch-9xl: 8rem;
+  
+  
+  /* ===== FONT WEIGHTS ===== */
+  
+  --font-weight-watch-thin: 100;
+  --font-weight-watch-extralight: 200;
+  --font-weight-watch-light: 300;
+  --font-weight-watch-normal: 400;
+  --font-weight-watch-medium: 500;
+  --font-weight-watch-semibold: 600;
+  --font-weight-watch-bold: 700;
+  --font-weight-watch-extrabold: 800;
+  --font-weight-watch-black: 900;
 }
 
 /* Base styles */
 html, body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
+  background-color: #1E1E22;
+  color: #FFFFFF;
 }

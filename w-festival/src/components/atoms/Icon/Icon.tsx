@@ -17,11 +17,11 @@ const sizeMap = {
 }
 
 const colorMap = {
-  white: 'text-white',
-  gray: 'text-gray-400',
-  red: 'text-red-600',
-  orange: 'text-orange-600',
-  black: 'text-black'
+  white: 'text-watch-text-white',
+  gray: 'text-watch-gray-400',
+  red: 'text-watch-secondary',
+  orange: 'text-watch-primary',
+  black: 'text-watch-text-black'
 }
 
 export default function Icon({ 

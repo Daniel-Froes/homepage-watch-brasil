@@ -15,26 +15,26 @@ interface ButtonProps {
 }
 
 const variantClasses = {
-  primary: 'bg-red-600 text-white hover:bg-red-700',
-  secondary: 'bg-gray-600 text-white hover:bg-gray-700',
-  ghost: 'text-white/80 hover:text-white hover:bg-white/10',
-  orange: 'bg-orange-500 text-white hover:bg-orange-600'
+  primary: 'bg-watch-secondary text-watch-text-white hover:bg-watch-secondary-dark',
+  secondary: 'bg-watch-gray-600 text-watch-text-white hover:bg-watch-gray-700',
+  ghost: 'text-watch-white-80 hover:text-watch-text-white hover:bg-watch-white-10',
+  orange: 'bg-watch-primary text-watch-text-white hover:bg-watch-primary-hover'
 }
 
 const sizeClasses = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-base',
-  lg: 'px-6 py-3 text-lg'
+  sm: 'px-watch-3 py-watch-1.5 text-watch-sm',
+  md: 'px-watch-4 py-watch-2 text-watch-base',
+  lg: 'px-watch-6 py-watch-3 text-watch-lg'
 }
 
 const radiusClasses = {
-  none: 'rounded-none',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  xl: 'rounded-xl',
-  '2xl': 'rounded-2xl',
-  full: 'rounded-full'
+  none: 'rounded-watch-none',
+  sm: 'rounded-watch-sm',
+  md: 'rounded-watch-md',
+  lg: 'rounded-watch-lg',
+  xl: 'rounded-watch-xl',
+  '2xl': 'rounded-watch-2xl',
+  full: 'rounded-watch-full'
 }
 
 export default function Button({
@@ -49,7 +49,7 @@ export default function Button({
   type = 'button',
   radius = 'lg'
 }: ButtonProps) {
-  const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer'
+  const baseClasses = 'inline-flex items-center justify-center font-watch-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer'
   
   const classes = [
     baseClasses,
@@ -69,11 +69,11 @@ export default function Button({
       className={classes}
     >
       {IconComponent && iconPosition === 'left' && (
-        <IconComponent size={iconSize} className="mr-2" />
+        <IconComponent size={iconSize} className="mr-watch-2" />
       )}
       {children}
       {IconComponent && iconPosition === 'right' && (
-        <IconComponent size={iconSize} className="ml-2" />
+        <IconComponent size={iconSize} className="ml-watch-2" />
       )}
     </button>
   )

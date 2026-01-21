@@ -20,15 +20,15 @@ export default function UserProfile({
   className = '' 
 }: UserProfileProps) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <div className="flex items-center gap-2">
+    <div className={`flex items-center gap-watch-3 ${className}`}>
+      <div className="flex items-center gap-watch-2">
         <Avatar 
           src={avatar}
           alt={name}
           size="sm"
           className={avatarColor}
         />
-        <span className="text-sm font-medium text-white">
+        <span className="text-watch-sm font-watch-medium text-watch-text-white">
           {name}
         </span>
       </div>

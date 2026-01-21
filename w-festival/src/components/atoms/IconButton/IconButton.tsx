@@ -14,17 +14,17 @@ export default function IconButton({
   className = '', 
   ...props 
 }: IconButtonProps) {
-  const baseClasses = 'inline-flex items-center justify-center rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-transparent'
+  const baseClasses = 'inline-flex items-center justify-center rounded-watch-md transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-transparent'
   
   const variants = {
-    primary: 'bg-red-600 text-white hover:bg-red-700',
-    ghost: 'text-white hover:bg-white/10'
+    primary: 'bg-watch-secondary text-watch-text-white hover:bg-watch-secondary-dark',
+    ghost: 'text-watch-text-white hover:bg-watch-white-10'
   }
   
   const sizes = {
-    sm: 'h-8 w-8 text-sm',
-    md: 'h-10 w-10 text-base', 
-    lg: 'h-12 w-12 text-lg'
+    sm: 'h-watch-8 w-watch-8 text-watch-sm',
+    md: 'h-watch-10 w-watch-10 text-watch-base', 
+    lg: 'h-watch-12 w-watch-12 text-watch-lg'
   }
   
   return (

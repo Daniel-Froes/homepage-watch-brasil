@@ -48,19 +48,13 @@ export default function Header({
   
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-30 ${className}`} 
-        style={{
-          background: `
-            linear-gradient(180deg, #2B2B2E 0%, rgba(43, 43, 46, 0.6) 54.69%, rgba(43, 43, 46, 0) 100%),
-            linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))
-          `
-        }}
-      >
-        <div className="container mx-auto">
-          <div className="flex items-center justify-between h-20 pt-6">
-            <div className="flex items-center space-x-8">
+      <header className={`fixed top-0 left-0 right-0 z-30 bg-gradient-to-b from-watch-bg-surface-alt via-watch-bg-surface-alt/60 via-55% to-transparent ${className}`}>
+        <div className="absolute inset-0 bg-watch-overlay-light"></div>
+        <div className="container mx-auto relative z-10">
+          <div className="flex items-center justify-between h-watch-20 pt-watch-6">
+            <div className="flex items-center space-x-watch-8">
 
-              <div className="mb-5">
+              <div className="mb-watch-5">
                 <Logo 
                   src={logoSrc} 
                   alt={logoAlt}
@@ -72,7 +66,7 @@ export default function Header({
               <DesktopNav items={navItems} />
             </div>
             
-            <div className="hidden lg:flex items-center space-x-2">
+            <div className="hidden lg:flex items-center space-x-watch-2">
               <UserProfile 
                 name="Peter Parker"
                 avatarColor="bg-orange-500"
@@ -94,7 +88,7 @@ export default function Header({
         onClose={closeMobileMenu}
       />
       
-      <div className="h-18" />
+      <div className="h-watch-18" />
     </>
   )
 }

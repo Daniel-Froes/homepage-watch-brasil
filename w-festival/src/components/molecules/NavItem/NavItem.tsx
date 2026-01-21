@@ -21,11 +21,11 @@ export default function NavItem({
   onClick, 
   className = '' 
 }: NavItemProps) {
-  const baseClasses = 'flex items-center gap-2 px-4 py-2 font-medium transition-colors duration-200 rounded-md focus:outline-none focus:ring-2 focus:ring-white/20'
+  const baseClasses = 'flex items-center gap-watch-2 px-watch-4 py-watch-2 font-watch-medium transition-colors duration-200 rounded-watch-md focus:outline-none focus:ring-2 focus:ring-watch-white-20'
   const typographyClasses = 'text-[16px] leading-[24px] tracking-[-0.02em]'
   const activeClasses = isActive 
-    ? 'text-white' 
-    : 'text-gray-300 hover:text-white'
+    ? 'text-watch-text-white' 
+    : 'text-watch-text-secondary hover:text-watch-text-white'
     
   return (
     <Link 
@@ -34,9 +34,9 @@ export default function NavItem({
       className={`${baseClasses} ${typographyClasses} ${activeClasses} ${className}`}
       style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}
     >
-      {icon && <span className="w-4 h-4">{icon}</span>}
+      {icon && <span className="w-watch-4 h-watch-4">{icon}</span>}
       <span>{label}</span>
-      {hasDropdown && <ChevronDown size={16} className="ml-1" />}
+      {hasDropdown && <ChevronDown size={16} className="ml-watch-1" />}
     </Link>
   )
 }
