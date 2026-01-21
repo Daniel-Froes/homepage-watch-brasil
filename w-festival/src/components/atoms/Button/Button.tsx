@@ -22,7 +22,7 @@ const variantClasses = {
 }
 
 const sizeClasses = {
-  sm: 'px-watch-3 py-watch-1.5 text-watch-sm',
+  sm: 'px-watch-3 py-watch-1.5 text-watch-sm h-[32px]',
   md: 'px-watch-4 py-watch-2 text-watch-base',
   lg: 'px-watch-6 py-watch-3 text-watch-lg'
 }

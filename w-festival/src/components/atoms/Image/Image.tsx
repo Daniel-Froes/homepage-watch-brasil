@@ -19,15 +19,9 @@ export default function Image({
   ...props 
 }: ImageProps) {
   const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(true)
 
   const handleError = () => {
     setError(true)
-    setLoading(false)
-  }
-
-  const handleLoad = () => {
-    setLoading(false)
   }
 
   const imageSrc = error && fallbackSrc ? fallbackSrc : src
@@ -41,15 +35,11 @@ export default function Image({
 
   return (
     <div className="relative w-full h-full">
-      {loading && (
-        <div className="absolute inset-0 bg-watch-gray-800 animate-pulse" />
-      )}
       <img
         src={imageSrc}
         alt={alt}
         onError={handleError}
-        onLoad={handleLoad}
-        className={`${objectFitClass} ${loading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 ${className}`}
+        className={`w-full h-full ${objectFitClass} ${className}`}
         {...props}
       />
     </div>

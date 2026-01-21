@@ -50,7 +50,7 @@ export default function Header({
     <>
       <header className={`fixed top-0 left-0 right-0 z-30 bg-gradient-to-b from-watch-bg-surface-alt via-watch-bg-surface-alt/60 via-55% to-transparent ${className}`}>
         <div className="absolute inset-0 bg-watch-overlay-light"></div>
-        <div className="container mx-auto relative z-10">
+        <div className="max-w-332 2xl:max-w-408 mx-auto relative z-10">
           <div className="flex items-center justify-between h-watch-20 pt-watch-6">
             <div className="flex items-center space-x-watch-8">
 

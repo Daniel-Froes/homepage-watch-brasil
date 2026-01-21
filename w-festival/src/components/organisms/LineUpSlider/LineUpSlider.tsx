@@ -20,7 +20,7 @@ interface LineUpSliderProps {
 
 export default function LineUpSlider({ artists }: LineUpSliderProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true,
+    loop: false,
     align: 'start',
     slidesToScroll: 1,
     skipSnaps: false,
