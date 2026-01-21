@@ -20,7 +20,7 @@ export default function FestivalSlider({ festivals }: FestivalSliderProps) {
 
   return (
     <Section background="watch-bg-secondary" padding="lg" className='overflow-hidden'>
-      <div className="flex flex-col md:flex-row gap-watch-6 items-start md:items-center max-w-332 2xl:max-w-408 mx-auto px-watch-6 md:px-0">
+      <div className="flex flex-col md:flex-row gap-watch-6 items-start md:items-center max-w-165 lg:max-w-250 xl:max-w-332 2xl:max-w-464 mx-auto px-watch-6 md:px-0">
         <div className="shrink-0 md:w-64">
           <h2 className="text-white text-2xl font-bold mb-watch-4">
             Festival for you

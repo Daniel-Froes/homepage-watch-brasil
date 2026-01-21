@@ -38,7 +38,7 @@ export default function Home() {
 
       <AdCarousel ads={ads} />
 
-      <ArtistCarousel items={artists} title="Watch Again" />
+      <ArtistCarousel items={artists} title="Watch Again" showWatchAgainBadge={true} />
     </div>
   );
 }

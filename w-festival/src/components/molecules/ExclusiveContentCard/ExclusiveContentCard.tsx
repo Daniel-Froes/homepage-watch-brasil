@@ -26,10 +26,8 @@ export default function ExclusiveContentCard({
         className="object-cover group-hover:scale-105 transition-transform duration-300"
       />
 
-      {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
 
-      {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-between p-watch-6">
         <div></div>
         <div>

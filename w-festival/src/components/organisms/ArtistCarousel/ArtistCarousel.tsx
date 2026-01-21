@@ -20,6 +20,7 @@ interface ArtistCarouselProps {
   showAd?: boolean
   adPosition?: number
   showTitlePadding?: boolean
+  showWatchAgainBadge?: boolean
 }
 
 export default function ArtistCarousel({
@@ -28,6 +29,7 @@ export default function ArtistCarousel({
   showAd = true,
   adPosition = 5,
   showTitlePadding = false,
+  showWatchAgainBadge = false,
 }: ArtistCarouselProps) {
   const [emblaRef] = useEmblaCarousel({
     loop: false,
@@ -61,13 +63,17 @@ export default function ArtistCarousel({
       </Container>
 
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-watch-6 md:px-0">
+        <div className="flex gap-watch-4 max-w-165 lg:max-w-250 xl:max-w-332 2xl:max-w-464 mx-auto px-watch-6 md:px-0">
           {displayItems.map((item) => (
             <div key={item.id} className="flex-[0_0_auto]">
               {item.isAd ? (
                 <AdCard imageSrc="/tesla.png" imageAlt="Tesla" imageOnly />
               ) : (
-                <ArtistCard name={item.name} image={item.image} />
+                <ArtistCard 
+                  name={item.name} 
+                  image={item.image}
+                  showWatchAgainBadge={showWatchAgainBadge}
+                />
               )}
             </div>
           ))}

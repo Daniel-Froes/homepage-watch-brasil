@@ -35,7 +35,6 @@ export default function Avatar({
     )
   }
   
-  // Pega as iniciais do nome (primeira letra de cada palavra)
   const initials = alt
     .split(' ')
     .map(word => word.charAt(0).toUpperCase())
