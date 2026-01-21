@@ -24,15 +24,15 @@ export default function VideoHero({
     <section className="relative h-screen overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
         <iframe
-          className="w-full h-full object-cover"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           src={`https://www.youtube.com/embed/${videoSrc}?autoplay=1&mute=1&loop=1&playlist=${videoSrc}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&start=0`}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           style={{
-            transform: 'scale(1.2)',
-            transformOrigin: 'center center',
+            width: 'max(177.77vh, 100vw)',
+            height: 'max(56.25vw, 100vh)',
             pointerEvents: 'none'
           }}
         />
@@ -54,45 +54,52 @@ export default function VideoHero({
       </div>
       
       <div className="relative z-20 flex flex-col justify-between h-full">
-        <div className="flex-1 flex items-start justify-start p-8 pt-24">
-          <div className="text-white">
-            <Text variant="h1" size="hero" weight="bold" className="mb-4">
-              {title}
-            </Text>
-            <div className="flex items-center space-x-4 text-sm uppercase tracking-wider">
-              <span className="text-white px-2 py-1 rounded">{status}</span>
-              <span>{subtitle}</span>
-              <span>•</span>
-              <span>{location}</span>
+        <div className="flex-1 flex items-start justify-start pt-20 md:pt-24">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="text-white">
+              <Text variant="h3" weight="bold" className="mb-2 md:mb-4 text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
+                {title}
+              </Text>
+              <div className="flex flex-wrap items-center gap-2 md:gap-4 uppercase tracking-wider text-xs md:text-sm">
+                <Text variant="p" size="sm" className="text-white px-2 py-1 rounded">{status}</Text>
+                <Text variant="p" size="sm">{subtitle}</Text>
+                <Text variant="p" size="sm">•</Text>
+                <Text variant="p" size="sm">{location}</Text>
+              </div>
             </div>
           </div>
         </div>
         
-        <div className="p-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Button 
-                variant="orange" 
-                icon={VideoOff} 
-                onClick={() => console.log('Close camera')}
-              >
-                Close your camera
-              </Button>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" onClick={() => console.log('Grid clicked')}>
-                <Icon icon={Grid2X2} />
-              </Button>
-              <Button variant="ghost" onClick={() => console.log('Maximize clicked')}>
-                <Icon icon={Maximize} />
-              </Button>
-              <Button variant="ghost" onClick={() => console.log('Volume clicked')}>
-                <Icon icon={Volume2} />
-              </Button>
-              <Button variant="ghost" onClick={() => console.log('Settings clicked')}>
-                <Icon icon={Settings} />
-              </Button>
+        <div className="p-4 md:p-8">
+          <div className="container mx-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2 md:gap-4 w-full md:w-auto">
+                <Button 
+                  variant="orange"
+                  size="sm"
+                  icon={VideoOff}
+                  radius="2xl"
+                  className="gap-1.5 w-full md:w-auto"
+                >
+                  <span className="hidden sm:inline">Close your camera</span>
+                  <span className="sm:hidden">Close camera</span>
+                </Button>
+              </div>
+              
+              <div className="flex items-center gap-2 md:gap-4">
+                <Button variant="ghost">
+                  <Icon icon={Grid2X2} />
+                </Button>
+                <Button variant="ghost">
+                  <Icon icon={Maximize} />
+                </Button>
+                <Button variant="ghost">
+                  <Icon icon={Volume2} />
+                </Button>
+                <Button variant="ghost">
+                  <Icon icon={Settings} />
+                </Button>
+              </div>
             </div>
           </div>
         </div>

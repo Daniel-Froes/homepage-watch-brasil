@@ -11,19 +11,30 @@ interface ButtonProps {
   iconPosition?: 'left' | 'right'
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'
 }
 
 const variantClasses = {
   primary: 'bg-red-600 text-white hover:bg-red-700',
   secondary: 'bg-gray-600 text-white hover:bg-gray-700',
   ghost: 'text-white/80 hover:text-white hover:bg-white/10',
-  orange: 'bg-orange-600 text-white hover:bg-orange-700'
+  orange: 'bg-orange-500 text-white hover:bg-orange-600'
 }
 
 const sizeClasses = {
   sm: 'px-3 py-1.5 text-sm',
   md: 'px-4 py-2 text-base',
   lg: 'px-6 py-3 text-lg'
+}
+
+const radiusClasses = {
+  none: 'rounded-none',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  xl: 'rounded-xl',
+  '2xl': 'rounded-2xl',
+  full: 'rounded-full'
 }
 
 export default function Button({
@@ -35,14 +46,16 @@ export default function Button({
   icon: IconComponent,
   iconPosition = 'left',
   disabled = false,
-  type = 'button'
+  type = 'button',
+  radius = 'lg'
 }: ButtonProps) {
-  const baseClasses = 'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+  const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer'
   
   const classes = [
     baseClasses,
     variantClasses[variant],
     sizeClasses[size],
+    radiusClasses[radius],
     className
   ].filter(Boolean).join(' ')
 

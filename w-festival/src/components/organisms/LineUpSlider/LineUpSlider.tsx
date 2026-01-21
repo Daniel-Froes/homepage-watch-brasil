@@ -1,14 +1,14 @@
 'use client'
 
-import { useState } from 'react'
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
+import useEmblaCarousel from 'embla-carousel-react'
+import { ArrowRight } from 'lucide-react'
 import Button from '../../atoms/Button'
-import Icon from '../../atoms/Icon'
 
 interface Artist {
   id: string
   name: string
   image: string
+  isAd?: boolean
 }
 
 interface LineUpSliderProps {
@@ -16,111 +16,118 @@ interface LineUpSliderProps {
 }
 
 export default function LineUpSlider({ artists }: LineUpSliderProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: 'start',
+    slidesToScroll: 1,
+    skipSnaps: false,
+    dragFree: true
+  })
 
   const allItems = [
-    ...artists.slice(0, 2),
+    ...artists.slice(0, 4),
     {
       id: 'tesla-ad',
       name: 'Tesla Ad',
       image: '/tesla-ad.jpg',
       isAd: true
     },
-    ...artists.slice(2)
+    ...artists.slice(4),
+    ...artists.slice(0, 4).map((artist, idx) => ({ ...artist, id: `${artist.id}-dup-${idx}` })),
+    {
+      id: 'tesla-ad-2',
+      name: 'Tesla Ad',
+      image: '/tesla-ad.jpg',
+      isAd: true
+    }
   ]
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % allItems.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + allItems.length) % allItems.length)
-  }
 
   return (
     <section className="py-8" style={{ backgroundColor: '#1E1E22' }}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-6">
+      <div className="container mx-auto">
+        <div className="mb-6 px-4 md:px-8">
           <h2 className="text-white text-2xl font-bold">Line Up</h2>
-          <div className="flex space-x-2">
-            <Button 
-              variant="ghost" 
-              onClick={prevSlide}
-              className="p-1"
-            >
-              <Icon icon={ChevronLeft} />
-            </Button>
-            <Button 
-              variant="ghost" 
-              onClick={nextSlide}
-              className="p-1"
-            >
-              <Icon icon={ChevronRight} />
-            </Button>
-          </div>
-        </div>
-        
-        <div className="flex space-x-4 overflow-hidden">
-          {allItems.map((item, index) => (
-            <div
-              key={item.id}
-              className={`flex-shrink-0 w-48 h-64 relative transition-transform duration-300 ${
-                index >= currentIndex && index < currentIndex + 5 ? 'block' : 'hidden'
-              }`}
-            >
-              {item.isAd ? (
-                <div className="bg-gradient-to-r from-red-600 to-red-800 rounded-lg h-full flex flex-col justify-between p-4 relative overflow-hidden">
-                  <div className="absolute top-2 right-2">
-                    <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded">
-                      Announcement
-                    </span>
-                  </div>
-                  
-                  <div className="flex-1 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-white text-2xl font-bold mb-2">TESLA</div>
-                      <div className="text-white/80 text-sm mb-4">Supercharger Technology</div>
-                      <img 
-                        src="/tesla-model3.png" 
-                        alt="Tesla Model 3" 
-                        className="w-32 h-auto mx-auto"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none'
-                        }}
-                      />
-                    </div>
-                  </div>
-                  
-                  <Button 
-                    variant="secondary" 
-                    size="sm"
-                    icon={ArrowRight}
-                    iconPosition="right"
-                    onClick={() => console.log('Tesla ad clicked')}
-                  >
-                    Learn more
-                  </Button>
-                </div>
-              ) : (
-                <div className="relative h-full rounded-lg overflow-hidden group cursor-pointer">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://via.placeholder.com/192x256/1f2937/white?text=${encodeURIComponent(item.name)}`
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-bold text-lg">{item.name}</h3>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
         </div>
       </div>
+        
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-4 pl-4 md:pl-8 container mx-auto">
+          {allItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex-[0_0_auto]"
+              >
+                {item.isAd ? (
+                  <div 
+                    className="relative flex flex-col justify-between p-6 overflow-hidden"
+                    style={{
+                      width: '440px',
+                      height: '288px',
+                      borderRadius: '8px',
+                      background: 'linear-gradient(135deg, #DC2626 0%, #991B1B 100%)'
+                    }}
+                  >
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-orange-500 text-white text-xs px-3 py-1.5 rounded-full font-medium">
+                        Announcement
+                      </span>
+                    </div>
+                    
+                    <div className="flex-1 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-white text-4xl font-bold mb-2 tracking-wider">TESLA</div>
+                        <div className="text-white/90 text-base mb-6">Supercharger Technology</div>
+                        <img 
+                          src="/tesla-model3.png" 
+                          alt="Tesla Model 3" 
+                          className="w-48 h-auto mx-auto"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none'
+                          }}
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-center">
+                      <Button 
+                        variant="secondary" 
+                        size="sm"
+                        icon={ArrowRight}
+                        iconPosition="right"
+                        radius="full"
+                        className="px-6"
+                      >
+                        Learn more
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div 
+                    className="relative overflow-hidden group cursor-pointer"
+                    style={{
+                      width: '220px',
+                      height: '288px',
+                      borderRadius: '8px'
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.currentTarget.src = `https://via.placeholder.com/220x288/1f2937/white?text=${encodeURIComponent(item.name)}`
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white font-bold text-lg">{item.name}</h3>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
     </section>
   )
 }

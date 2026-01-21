@@ -88,15 +88,13 @@ export default function Header({
         </div>
       </header>
       
-      {/* Mobile Menu */}
       <MobileMenu 
         isOpen={isMobileMenuOpen}
         items={navItems}
         onClose={closeMobileMenu}
       />
       
-      {/* Spacer for fixed header */}
-      <div className="h-20" />
+      <div className="h-18" />
     </>
   )
 }

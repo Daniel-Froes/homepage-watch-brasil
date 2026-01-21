@@ -10,7 +10,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "W Festival - Homepage Watch Brasil",
+  title: "WATCH BRASIL",
   description: "Festival de música com os melhores artistas do Brasil",
 };
 

@@ -6,22 +6,27 @@ export default function Home() {
     {
       id: '1',
       name: 'Iron Maiden',
-      image: '/artists/iron-maiden.jpg'
+      image: '/ironmaiden.png'
     },
     {
       id: '2', 
       name: 'Alok',
-      image: '/artists/alok.jpg'
+      image: '/alok.png'
     },
     {
       id: '3',
       name: 'Rita Ora',
-      image: '/artists/rita-ora.jpg'
+      image: '/ritaora.png'
     },
     {
       id: '4',
       name: 'Dream Theatre',
-      image: '/artists/dream-theatre.jpg'
+      image: '/dreamtheate.png'
+    },
+    {
+      id: '5',
+      name: 'Dua Lipa',
+      image: '/dualipa.png'
     }
   ]
 
