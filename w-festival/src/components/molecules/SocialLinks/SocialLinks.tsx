@@ -38,6 +38,7 @@ export default function SocialLinks({ className = '' }: SocialLinksProps) {
             alt={social.label}
             width={24}
             height={24}
+            loading="lazy"
             className="object-none"
           />
         </Link>

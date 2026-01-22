@@ -45,6 +45,7 @@ export default function Image({
         fill={!width && !height}
         width={width}
         height={height}
+        loading="lazy"
         onError={handleError}
         className={`w-full h-full ${objectFitClass} ${className}`}
       />

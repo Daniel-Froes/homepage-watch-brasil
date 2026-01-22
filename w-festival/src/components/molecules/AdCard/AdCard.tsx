@@ -51,6 +51,7 @@ export default function AdCard({
         src={image}
         alt={title}
         fill
+        loading="lazy"
         className="object-cover"
         sizes="(max-width: 640px) 100vw, 440px"
       />

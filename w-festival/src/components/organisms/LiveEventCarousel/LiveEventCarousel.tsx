@@ -37,6 +37,7 @@ export default function LiveEventCarousel({
                 src={event.image}
                 alt={(event as any).artist || ''}
                 fill
+                loading="lazy"
                 className="object-cover"
               />
             )}

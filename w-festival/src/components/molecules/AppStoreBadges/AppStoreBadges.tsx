@@ -19,6 +19,7 @@ export default function AppStoreBadges({ className = '' }: AppStoreBadgesProps) 
           alt="Get it on Google Play"
           width={136}
           height={40}
+          loading="lazy"
           className="object-contain"
         />
       </Link>
@@ -33,6 +34,7 @@ export default function AppStoreBadges({ className = '' }: AppStoreBadgesProps) 
           alt="Download on App Store"
           width={136}
           height={40}
+          loading="lazy"
           className="object-contain"
         />
       </Link>

@@ -32,6 +32,7 @@ export default function FestivalCard({
           src={imageSrc}
           alt={title}
           fill
+          loading="lazy"
           className="object-cover"
           sizes="208px"
         />
@@ -42,6 +43,7 @@ export default function FestivalCard({
           src={svgSrc}
           alt={title}
           fill
+          loading="lazy"
           className="object-none"
         />
       )}

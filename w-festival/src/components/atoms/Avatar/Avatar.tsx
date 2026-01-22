@@ -29,6 +29,7 @@ export default function Avatar({
           src={src}
           alt={alt}
           fill
+          loading="lazy"
           className="object-cover"
         />
       </div>
