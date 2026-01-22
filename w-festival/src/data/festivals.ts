@@ -30,16 +30,6 @@ export const festivals: Festival[] = [
     svgSrc: '/pop.svg'
   },
   {
-    id: 'airpods',
-    title: 'AirPods Pro',
-    subtitle: 'buy now',
-    background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
-    textColor: 'white',
-    image: '/tesla.png',
-    imageSrc: '/airpod edit.png',
-    isWide: true
-  },
-  {
     id: 'funk',
     title: 'Funk',
     subtitle: 'Festival',

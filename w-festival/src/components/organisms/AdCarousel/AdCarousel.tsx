@@ -3,9 +3,9 @@
 import { useState, useCallback, useEffect } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import Section from '../../molecules/Section'
 import Container from '../../atoms/Layout/Container'
 import CarouselIndicator from '../../atoms/CarouselIndicator'
+import Section from '../../molecules/Section'
 import { Ad } from '@/src/data/ads'
 import Image from 'next/image'
 
@@ -74,6 +74,7 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
   return (
     <Section background="watch-bg-secondary" padding="lg">
       <Container>
+        {/* Mobile Version */}
         <div className="lg:hidden w-full">
           <div className="overflow-hidden" ref={emblaRefMobile}>
             <div className="flex gap-watch-4">
@@ -100,8 +101,10 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
                 index={index}
               />
             ))}
-          </div>        </div>
+          </div>        
+        </div>
 
+        {/* Desktop Version */}
         <div className="hidden lg:block relative bg-white rounded-watch-lg overflow-hidden">
           <div className="overflow-hidden" ref={emblaRefDesktop}>
             <div className="flex">
@@ -124,7 +127,7 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
             </div>
           </div>
 
-          <div className="flex justify-center gap-watch-2 py-watch-4  bg-white">
+          <div className="flex justify-center gap-watch-2 py-watch-4 bg-white">
             {ads.map((_, index) => (
               <CarouselIndicator
                 key={index}

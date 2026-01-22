@@ -1,96 +1,68 @@
-'use client'
-
-import { ArrowRight } from 'lucide-react'
-import Button from '../../atoms/Button'
-import Image from '../../atoms/Image'
-import Badge from '../../atoms/Badge'
+import Image from 'next/image'
+import Text from '../../atoms/Text'
 
 interface AdCardProps {
-  title?: string
-  subtitle?: string
-  imageSrc?: string
-  imageAlt?: string
-  badgeText?: string
-  buttonText?: string
-  width?: string
+  title: string
+  subtitle: string
+  image: string
+  cta?: {
+    text: string
+    href?: string
+  }
   height?: string
-  onButtonClick?: () => void
-  imageOnly?: boolean
 }
 
 export default function AdCard({
   title,
   subtitle,
-  imageSrc,
-  imageAlt,
-  badgeText = 'Announcement',
-  buttonText = 'Learn more',
-  width = '440px',
-  height = '288px',
-  onButtonClick,
-  imageOnly = false
+  image,
+  cta,
+  height = 'h-72'
 }: AdCardProps) {
-  if (imageOnly && imageSrc) {
-    return (
-      <div 
-        className="relative overflow-hidden rounded-watch-lg cursor-pointer border-4 border-transparent transition-all duration-300 hover:border-watch-primary"
-        style={{
-          width,
-          height
-        }}
-        onClick={onButtonClick}
-      >
-        <Image 
-          src={imageSrc}
-          alt={imageAlt || 'Ad'}
-          objectFit="cover"
-          className="w-full h-full"
-        />
-      </div>
-    )
-  }
-
   return (
-    <div 
-      className="relative flex flex-col justify-between p-watch-6 overflow-hidden rounded-watch-lg bg-gradient-to-br from-watch-secondary to-watch-secondary-dark"
-      style={{
-        width,
-        height
-      }}
-    >
-      <div className="absolute top-4 right-4">
-        <Badge variant="orange" size="md">
-          {badgeText}
-        </Badge>
-      </div>
-      
-      <div className="flex-1 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-white text-watch-4xl font-watch-bold mb-watch-2 tracking-wider">{title}</div>
-          <div className="text-white/90 text-watch-base mb-watch-6">{subtitle}</div>
-          {imageSrc && (
-            <Image 
-              src={imageSrc}
-              alt={imageAlt || title || 'Ad'}
-              objectFit="contain"
-              className="w-watch-48 h-auto mx-auto"
-            />
-          )}
+    <div className={`relative w-full sm:w-[440px] ${height} rounded-watch-md overflow-hidden group cursor-pointer border-4 border-watch-bg-primary hover:border-watch-primary transition-colors duration-300`}>
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="object-cover"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+
+      {/* Badge Announcement */}
+      <div className="absolute top-2 right-2 z-10">
+        <div 
+          className="flex items-center gap-1 px-2 py-1 rounded-3xl text-white text-xs font-semibold"
+          style={{ backgroundColor: '#E96744' }}
+        >
+          Announcement
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+            <path d="M6 4V6.5M6 8.5V8.51" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
         </div>
       </div>
-      
-      <div className="flex justify-center">
-        <Button 
-          variant="secondary" 
-          size="sm"
-          icon={ArrowRight}
-          iconPosition="right"
-          radius="full"
-          className="px-watch-6"
-          onClick={onButtonClick}
-        >
-          {buttonText}
-        </Button>
+
+      <div className="absolute inset-0 flex flex-col justify-between p-watch-6">
+        <div></div>
+        <div>
+          <h3 className="text-white text-2xl font-bold mb-watch-1">
+            {title}
+          </h3>
+          <Text className="text-white/80 text-sm mb-watch-4">
+            {subtitle}
+          </Text>
+          {cta && (
+            <a
+              href={cta.href || '#'}
+              className="inline-flex items-center gap-2 text-white bg-orange-500 hover:bg-orange-600 px-watch-4 py-watch-2 rounded-watch-md text-xs font-semibold transition-colors"
+            >
+              {cta.text}
+              <span>→</span>
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )
