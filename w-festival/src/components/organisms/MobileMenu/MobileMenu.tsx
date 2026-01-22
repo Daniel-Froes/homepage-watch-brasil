@@ -11,6 +11,7 @@ interface NavItemType {
   icon?: React.ReactNode
   isActive?: boolean
   hasDropdown?: boolean
+  dropdownItems?: Array<{ label: string; href: string }>
 }
 
 interface MobileMenuProps {
@@ -62,14 +63,12 @@ export default function MobileMenu({
   
   return (
     <>
-      {/* Menu */}
       <div 
         ref={menuRef}
         className={`fixed top-0 left-0 w-full h-[50vh] bg-watch-bg-primary shadow-xl z-50 transform transition-all duration-700 ease-out md:hidden flex flex-col ${
           isOpen ? 'translate-y-0' : '-translate-y-full'
         } ${className}`}
       >
-        {/* Header com Logo e Fechar - Fixo */}
         <div className="sticky top-0 flex items-center justify-between py-watch-6 border-b border-white/10 bg-watch-bg-primary">
           <Logo 
             src={logoSrc} 
@@ -95,7 +94,9 @@ export default function MobileMenu({
               icon={item.icon}
               isActive={item.isActive}
               hasDropdown={item.hasDropdown}
+              dropdownItems={item.dropdownItems}
               onClick={onClose}
+              isMobile={true}
               className="w-full text-left justify-start px-watch-4 py-watch-3 text-watch-base"
             />
           ))}

@@ -26,7 +26,7 @@ export const exclusiveContent: ExclusiveContent[] = [
     id: 'nike-exclusive',
     title: 'Nike Air Max 90 Futura',
     subtitle: 'Exclusive Product',
-    image: '/tesla.png',
+    image: '/airmax.jpg',
     cta: {
       text: 'Learn more',
       href: '#'

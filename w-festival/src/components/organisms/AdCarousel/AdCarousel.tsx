@@ -3,9 +3,9 @@
 import { useState, useCallback, useEffect } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import Section from '../../molecules/Section'
 import Container from '../../atoms/Layout/Container'
 import CarouselIndicator from '../../atoms/CarouselIndicator'
+import Section from '../../molecules/Section'
 import { Ad } from '@/src/data/ads'
 import Image from 'next/image'
 
@@ -14,9 +14,10 @@ interface AdCarouselProps {
 }
 
 export default function AdCarousel({ ads }: AdCarouselProps) {
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [selectedIndexMobile, setSelectedIndexMobile] = useState(0)
+  const [selectedIndexDesktop, setSelectedIndexDesktop] = useState(0)
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRefMobile, emblaApiMobile] = useEmblaCarousel(
     {
       loop: true,
       align: 'center',
@@ -24,31 +25,58 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
     [Autoplay({ delay: 5000, stopOnInteraction: false })]
   )
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-  }, [emblaApi])
+  const [emblaRefDesktop, emblaApiDesktop] = useEmblaCarousel(
+    {
+      loop: true,
+      align: 'center',
+    },
+    [Autoplay({ delay: 5000, stopOnInteraction: false })]
+  )
+
+  const onSelectMobile = useCallback(() => {
+    if (!emblaApiMobile) return
+    setSelectedIndexMobile(emblaApiMobile.selectedScrollSnap())
+  }, [emblaApiMobile])
+
+  const onSelectDesktop = useCallback(() => {
+    if (!emblaApiDesktop) return
+    setSelectedIndexDesktop(emblaApiDesktop.selectedScrollSnap())
+  }, [emblaApiDesktop])
 
   useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    emblaApi.on('select', onSelect)
+    if (!emblaApiMobile) return
+    onSelectMobile()
+    emblaApiMobile.on('select', onSelectMobile)
     return () => {
-      emblaApi.off('select', onSelect)
+      emblaApiMobile.off('select', onSelectMobile)
     }
-  }, [emblaApi, onSelect])
+  }, [emblaApiMobile, onSelectMobile])
 
-  const scrollTo = useCallback(
-    (index: number) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
+  useEffect(() => {
+    if (!emblaApiDesktop) return
+    onSelectDesktop()
+    emblaApiDesktop.on('select', onSelectDesktop)
+    return () => {
+      emblaApiDesktop.off('select', onSelectDesktop)
+    }
+  }, [emblaApiDesktop, onSelectDesktop])
+
+  const scrollToMobile = useCallback(
+    (index: number) => emblaApiMobile && emblaApiMobile.scrollTo(index),
+    [emblaApiMobile]
+  )
+
+  const scrollToDesktop = useCallback(
+    (index: number) => emblaApiDesktop && emblaApiDesktop.scrollTo(index),
+    [emblaApiDesktop]
   )
 
   return (
     <Section background="watch-bg-secondary" padding="lg">
       <Container>
-        <div className="md:hidden w-full">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
+        <div className="lg:hidden w-full">
+          <div className="overflow-hidden" ref={emblaRefMobile}>
+            <div className="flex gap-watch-4">
               {ads.map((ad) => (
                 <div key={ad.id} className="flex-[0_0_100%] min-w-0">
                   <Image
@@ -67,15 +95,16 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
             {ads.map((_, index) => (
               <CarouselIndicator
                 key={index}
-                isActive={index === selectedIndex}
-                onClick={() => scrollTo(index)}
+                isActive={index === selectedIndexMobile}
+                onClick={() => scrollToMobile(index)}
                 index={index}
               />
             ))}
-          </div>        </div>
+          </div>        
+        </div>
 
-        <div className="hidden md:block relative bg-white rounded-watch-lg overflow-hidden">
-          <div className="overflow-hidden" ref={emblaRef}>
+        <div className="hidden lg:block relative bg-white rounded-watch-lg overflow-hidden">
+          <div className="overflow-hidden" ref={emblaRefDesktop}>
             <div className="flex">
               {ads.map((ad) => (
                 <div key={ad.id} className="flex-[0_0_100%] min-w-0">
@@ -96,12 +125,12 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
             </div>
           </div>
 
-          <div className="flex justify-center gap-watch-2 py-watch-4  bg-white">
+          <div className="flex justify-center gap-watch-2 py-watch-4 bg-white">
             {ads.map((_, index) => (
               <CarouselIndicator
                 key={index}
-                isActive={index === selectedIndex}
-                onClick={() => scrollTo(index)}
+                isActive={index === selectedIndexDesktop}
+                onClick={() => scrollToDesktop(index)}
                 index={index}
               />
             ))}

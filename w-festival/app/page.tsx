@@ -16,7 +16,7 @@ export default function Home() {
         status={featuredVideo.status}
         location={featuredVideo.location}
       />
-      <ArtistCarousel items={artists} title="Line Up" showTitlePadding={true} />
+      <ArtistCarousel items={artists} title="Line Up" showTitlePadding={true} showAd={true} />
 
       <div id="festivals" className="scroll-mt-32">
         <FestivalSlider festivals={festivals} />
@@ -38,7 +38,7 @@ export default function Home() {
 
       <AdCarousel ads={ads} />
 
-      <ArtistCarousel items={artists} title="Watch Again" />
+      <ArtistCarousel items={artists} title="Watch Again" showWatchAgainBadge={true} />
     </div>
   );
 }

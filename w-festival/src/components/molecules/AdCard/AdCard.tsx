@@ -1,97 +1,107 @@
-'use client'
-
-import { ArrowRight } from 'lucide-react'
+import NextImage from 'next/image'
+import Text from '../../atoms/Text'
 import Button from '../../atoms/Button'
-import Image from '../../atoms/Image'
-import Badge from '../../atoms/Badge'
+import Overlay from '../../atoms/Overlay'
+import AnnouncementBadge from '../../atoms/AnnouncementBadge'
 
 interface AdCardProps {
-  title?: string
-  subtitle?: string
-  imageSrc?: string
-  imageAlt?: string
-  badgeText?: string
-  buttonText?: string
-  width?: string
+  title: string
+  subtitle: string
+  image: string
+  badge?: {
+    text?: string
+    show?: boolean
+  }
+  cta?: {
+    text: string
+    href?: string
+    onClick?: () => void
+  }
   height?: string
-  onButtonClick?: () => void
-  imageOnly?: boolean
+  onClick?: () => void
+  textAlign?: 'left' | 'center' | 'right'
 }
 
 export default function AdCard({
   title,
   subtitle,
-  imageSrc,
-  imageAlt,
-  badgeText = 'Announcement',
-  buttonText = 'Learn more',
-  width = '440px',
-  height = '288px',
-  onButtonClick,
-  imageOnly = false
+  image,
+  badge = { show: true },
+  cta,
+  height = 'h-72',
+  onClick,
+  textAlign = 'left'
 }: AdCardProps) {
-  if (imageOnly && imageSrc) {
-    return (
-      <div 
-        className="relative overflow-hidden rounded-watch-lg cursor-pointer border-4 border-transparent transition-all duration-300 hover:border-watch-primary"
-        style={{
-          width,
-          height
-        }}
-        onClick={onButtonClick}
-      >
-        <Image 
-          src={imageSrc}
-          alt={imageAlt || 'Ad'}
-          objectFit="cover"
-          className="w-full h-full"
-        />
-      </div>
-    )
+  const CardWrapper = onClick ? 'button' : 'div'
+  
+  const alignClasses = {
+    left: 'text-left items-start',
+    center: 'text-center items-center',
+    right: 'text-right items-end'
   }
-
+  
   return (
-    <div 
-      className="relative flex flex-col justify-between p-watch-6 overflow-hidden rounded-watch-lg bg-gradient-to-br from-watch-secondary to-watch-secondary-dark"
-      style={{
-        width,
-        height
-      }}
+    <CardWrapper 
+      className={`relative w-full sm:w-[440px] ${height} rounded-watch-md overflow-hidden group cursor-pointer border-4 border-watch-bg-primary hover:border-watch-primary transition-colors duration-300`}
+      onClick={onClick}
+      {...(onClick && { type: 'button' })}
     >
-      <div className="absolute top-4 right-4">
-        <Badge variant="orange" size="md">
-          {badgeText}
-        </Badge>
-      </div>
-      
-      <div className="flex-1 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-white text-watch-4xl font-watch-bold mb-watch-2 tracking-wider">{title}</div>
-          <div className="text-white/90 text-watch-base mb-watch-6">{subtitle}</div>
-          {imageSrc && (
-            <Image 
-              src={imageSrc}
-              alt={imageAlt || title || 'Ad'}
-              objectFit="contain"
-              className="w-watch-48 h-auto mx-auto"
-            />
+
+      <NextImage
+        src={image}
+        alt={title}
+        fill
+        className="object-cover"
+        sizes="(max-width: 640px) 100vw, 440px"
+      />
+
+  
+      <Overlay className="bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+      {badge?.show && (
+        <div className="absolute top-watch-2 right-watch-2 z-10">
+          <AnnouncementBadge text={badge.text} />
+        </div>
+      )}
+
+      <div className="absolute inset-0 flex flex-col justify-end p-watch-6 z-10">
+        <div className={`space-y-watch-1 w-full flex flex-col ${alignClasses[textAlign]}`}>
+          <Text 
+            variant="h3" 
+            size="2xl" 
+            weight="bold"
+            color="white"
+          >
+            {title}
+          </Text>
+          
+          <Text 
+            size="sm"
+            color="white"
+            className="text-white/80"
+          >
+            {subtitle}
+          </Text>
+          
+          {cta && (
+            <div className="pt-watch-3">
+              <Button
+                onClick={cta.href ? undefined : cta.onClick}
+                variant="primary"
+                size="sm"
+                radius="sm"
+                className="inline-flex items-center gap-watch-2"
+                {...(cta.href && {
+                  onClick: () => window.location.href = cta.href!
+                })}
+              >
+                {cta.text}
+                <span aria-hidden="true">→</span>
+              </Button>
+            </div>
           )}
         </div>
       </div>
-      
-      <div className="flex justify-center">
-        <Button 
-          variant="secondary" 
-          size="sm"
-          icon={ArrowRight}
-          iconPosition="right"
-          radius="full"
-          className="px-watch-6"
-          onClick={onButtonClick}
-        >
-          {buttonText}
-        </Button>
-      </div>
-    </div>
+    </CardWrapper>
   )
 }

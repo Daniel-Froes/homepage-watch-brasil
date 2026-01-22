@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Home, Radio, AudioLines, SparklesIcon } from 'lucide-react'
 import Logo from '../../atoms/Logo/Logo'
+import Container from '../../atoms/Layout/Container'
 import DesktopNav from '../DesktopNav/DesktopNav'
 import MobileMenu from '../MobileMenu/MobileMenu'
 import HamburgerButton from '../../molecules/HamburgerButton/HamburgerButton'
@@ -84,9 +85,9 @@ export default function Header({
   
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-30 bg-gradient-to-b from-watch-bg-surface-alt via-watch-bg-surface-alt/60 via-55% to-transparent ${className}`}>
+      <header className={`fixed top-0 left-0 right-0 z-30 bg-linear-to-b from-watch-bg-surface-alt via-watch-bg-surface-alt/60 via-55% to-transparent ${className}`}>
         <div className="absolute inset-0 bg-watch-overlay-light"></div>
-        <div className="max-w-332 2xl:max-w-408 mx-auto relative z-10">
+        <Container className="relative z-10">
           <div className="flex items-center justify-between h-watch-20 pt-watch-6">
             <div className="flex items-center space-x-watch-8">
 
@@ -105,8 +106,6 @@ export default function Header({
             <div className="hidden lg:flex items-center space-x-watch-2">
               <UserProfile 
                 name="Peter Parker"
-                avatarColor="bg-orange-500"
-                showSettings={true}
               />
             </div>
             
@@ -115,7 +114,7 @@ export default function Header({
               onClick={toggleMobileMenu}
             />
           </div>
-        </div>
+        </Container>
       </header>
       
       <MobileMenu 

@@ -1,11 +1,8 @@
 'use client'
 
-import useEmblaCarousel from 'embla-carousel-react'
 import ArtistCard from '../../molecules/ArtistCard'
 import AdCard from '../../molecules/AdCard'
-import Section from '../../molecules/Section'
-import Heading from '../../atoms/Heading'
-import Container from '../../atoms/Layout/Container'
+import Carousel from '../Carousel'
 
 interface Item {
   id: string
@@ -20,6 +17,7 @@ interface ArtistCarouselProps {
   showAd?: boolean
   adPosition?: number
   showTitlePadding?: boolean
+  showWatchAgainBadge?: boolean
 }
 
 export default function ArtistCarousel({
@@ -28,22 +26,15 @@ export default function ArtistCarousel({
   showAd = true,
   adPosition = 5,
   showTitlePadding = false,
+  showWatchAgainBadge = false,
 }: ArtistCarouselProps) {
-  const [emblaRef] = useEmblaCarousel({
-    loop: false,
-    align: 'start',
-    slidesToScroll: 1,
-    skipSnaps: false,
-    dragFree: true,
-  })
-
   const displayItems = showAd
     ? [
         ...items.slice(0, adPosition),
         {
           id: 'tesla-ad',
-          name: 'Tesla Ad',
-          image: '/tesla-ad.jpg',
+          name: 'Nike Air Max 90 Futura',
+          image: '/tesla.png',
           isAd: true,
         },
         ...items.slice(adPosition),
@@ -51,28 +42,30 @@ export default function ArtistCarousel({
     : items
 
   return (
-    <Section background="watch-bg-primary" padding="md">
-      <Container>
-        <div className={`text-2xl ${showTitlePadding ? 'lg:pt-watch-24' : ''} mb-watch-6`}>
-          <Heading level={2} className="text-white">
-            {title}
-          </Heading>
-        </div>
-      </Container>
-
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-watch-4 max-w-332 2xl:max-w-408 mx-auto px-watch-6 md:px-0">
-          {displayItems.map((item) => (
-            <div key={item.id} className="flex-[0_0_auto]">
-              {item.isAd ? (
-                <AdCard imageSrc="/tesla.png" imageAlt="Tesla" imageOnly />
-              ) : (
-                <ArtistCard name={item.name} image={item.image} />
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
+    <Carousel
+      title={title}
+      titlePadding={showTitlePadding}
+      items={displayItems}
+      itemClassName="flex-[0_0_auto]"
+      renderItem={(item) => 
+        item.isAd ? (
+          <AdCard 
+            title="Model 3 Standard"
+            subtitle="Exclusive Product"
+            image="/teslasds.png"
+            cta={{
+              text: "Learn more",
+              href: "www.tesla.com/model3-choose"
+            }}
+          />
+        ) : (
+          <ArtistCard 
+            name={item.name} 
+            image={item.image}
+            showWatchAgainBadge={showWatchAgainBadge}
+          />
+        )
+      }
+    />
   )
 }
