@@ -41,7 +41,7 @@ export default function FestivalSlider({ festivals, showAd = true, adPosition = 
       itemClassName="flex-[0_0_auto]"
       inlineCarousel={true}
       customHeader={
-        <div className="shrink-0 md:w-watch-64 flex items-start max-w-[280px] md:max-w-none">
+        <div className="shrink-0 mb-watch-3.5 md:mb-watch-0 md:w-watch-64 flex items-start max-w-[280px] md:max-w-none">
           <div>
             <Heading level={2} className="mb-watch-4 text-xl md:text-2xl">
               Festival for you
