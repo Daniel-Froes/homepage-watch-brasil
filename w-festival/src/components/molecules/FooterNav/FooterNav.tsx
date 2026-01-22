@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Text from '../../atoms/Text'
 
 interface FooterLink {
   label: string
@@ -17,16 +18,18 @@ const footerLinks: FooterLink[] = [
 
 export default function FooterNav({ className = '' }: FooterNavProps) {
   return (
-    <div className={`flex flex-col sm:flex-row gap-watch-6 ${className}`}>
+    <nav className={`flex flex-col sm:flex-row gap-watch-6 ${className}`} aria-label="Footer navigation">
       {footerLinks.map((link) => (
         <Link
           key={link.label}
           href={link.href}
-          className="text-gray-400 text-watch-3 hover:text-white transition-colors duration-200"
+          className="text-watch-gray-400 hover:text-white transition-colors duration-200"
         >
-          {link.label}
+          <Text size="sm" className="text-inherit">
+            {link.label}
+          </Text>
         </Link>
       ))}
-    </div>
+    </nav>
   )
 }

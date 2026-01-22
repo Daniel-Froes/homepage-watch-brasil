@@ -17,8 +17,8 @@ export default function FestivalSlider({ festivals, showAd = true, adPosition = 
     ? [
         ...festivals.slice(0, adPosition),
         {
-          id: 'nike-ad',
-          title: 'Nike Air Max 90 Futura',
+          id: 'airpods-pro-2',
+          title: 'Airpods Pro 2',
           subtitle: 'Exclusive Product',
           isAd: true,
         },
@@ -37,7 +37,7 @@ export default function FestivalSlider({ festivals, showAd = true, adPosition = 
       itemClassName="flex-[0_0_auto]"
       inlineCarousel={true}
       customHeader={
-        <div className="shrink-0 md:w-64">
+        <div className="shrink-0 md:w-watch-64">
           <h2 className="text-white text-2xl font-bold mb-watch-4">
             Festival for you
           </h2>
@@ -52,10 +52,10 @@ export default function FestivalSlider({ festivals, showAd = true, adPosition = 
       renderItem={(item: any) => 
         item.isAd ? (
           <AdCard 
-            title="Nike Air Max 90 Futura"
+            title="Airpods Pro 2"
             subtitle="Exclusive Product"
-            image="/tesla.png"
-            height="h-52"
+            image="/airpods.jpg"
+            height="h-watch-52"
             cta={{
               text: "Learn more",
               href: "#"

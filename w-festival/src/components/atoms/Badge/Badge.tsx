@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 interface BadgeProps {
   children: ReactNode
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'orange'
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'orange' | 'dark'
   size?: 'sm' | 'md' | 'lg'
   className?: string
 }
@@ -19,7 +19,8 @@ export default function Badge({
     success: 'bg-green-500 text-watch-text-white',
     warning: 'bg-yellow-500 text-watch-text-black',
     error: 'bg-watch-secondary text-watch-text-white',
-    orange: 'bg-watch-primary text-watch-text-white'
+    orange: 'bg-watch-primary text-watch-text-white',
+    dark: 'bg-black/60 backdrop-blur-sm text-white'
   }
 
   const sizes = {

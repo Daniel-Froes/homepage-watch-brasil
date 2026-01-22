@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 interface TextProps {
   children: ReactNode
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | 'hero'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | 'hero' | 'artist' | 'exclusive-title' | 'exclusive-subtitle'
   weight?: 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'
   color?: 'white' | 'black' | 'gray' | 'red' | 'orange'
   className?: string
@@ -20,7 +20,10 @@ const sizeClasses = {
   '4xl': 'text-watch-4xl',
   '5xl': 'text-watch-5xl',
   '6xl': 'text-watch-6xl',
-  hero: 'text-[32px] leading-[120%] tracking-[-2%]'
+  hero: 'text-[32px] leading-[120%] tracking-[-2%]',
+  artist: 'text-[20px] leading-tight',
+  'exclusive-title': 'text-[32px] leading-tight',
+  'exclusive-subtitle': 'text-[24px] leading-snug'
 }
 
 const weightClasses = {

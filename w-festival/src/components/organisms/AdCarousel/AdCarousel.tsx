@@ -74,7 +74,6 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
   return (
     <Section background="watch-bg-secondary" padding="lg">
       <Container>
-        {/* Mobile Version */}
         <div className="lg:hidden w-full">
           <div className="overflow-hidden" ref={emblaRefMobile}>
             <div className="flex gap-watch-4">
@@ -104,7 +103,6 @@ export default function AdCarousel({ ads }: AdCarouselProps) {
           </div>        
         </div>
 
-        {/* Desktop Version */}
         <div className="hidden lg:block relative bg-white rounded-watch-lg overflow-hidden">
           <div className="overflow-hidden" ref={emblaRefDesktop}>
             <div className="flex">

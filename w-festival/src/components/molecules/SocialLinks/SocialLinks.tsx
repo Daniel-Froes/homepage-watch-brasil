@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { Youtube, Linkedin, Instagram, Facebook, Music, Twitter } from 'lucide-react'
+import Image from 'next/image'
 
 interface SocialLink {
-  icon: React.ComponentType<{ size?: number }>
+  icon: string
   href: string
   label: string
-  color: string
+  hoverOpacity?: string
 }
 
 interface SocialLinksProps {
@@ -13,62 +13,35 @@ interface SocialLinksProps {
 }
 
 const socialLinks: SocialLink[] = [
-  {
-    icon: Youtube,
-    href: 'https://youtube.com',
-    label: 'YouTube',
-    color: 'hover:text-red-500'
-  },
-  {
-    icon: Linkedin,
-    href: 'https://linkedin.com',
-    label: 'LinkedIn',
-    color: 'hover:text-blue-500'
-  },
-  {
-    icon: Instagram,
-    href: 'https://instagram.com',
-    label: 'Instagram',
-    color: 'hover:text-pink-500'
-  },
-  {
-    icon: Facebook,
-    href: 'https://facebook.com',
-    label: 'Facebook',
-    color: 'hover:text-blue-600'
-  },
-  {
-    icon: Music,
-    href: 'https://tiktok.com',
-    label: 'TikTok',
-    color: 'hover:text-white'
-  },
-  {
-    icon: Twitter,
-    href: 'https://twitter.com',
-    label: 'Twitter',
-    color: 'hover:text-blue-400'
-  }
+  { icon: '/logoyoutube.png', href: 'https://youtube.com', label: 'YouTube', hoverOpacity: 'hover:opacity-80' },
+  { icon: '/logolinkedin.png', href: 'https://linkedin.com', label: 'LinkedIn', hoverOpacity: 'hover:opacity-80' },
+  { icon: '/logoinstagram.png', href: 'https://instagram.com', label: 'Instagram', hoverOpacity: 'hover:opacity-80' },
+  { icon: '/Llogofacebook.png', href: 'https://facebook.com', label: 'Facebook', hoverOpacity: 'hover:opacity-80' },
+  { icon: '/logotiktok.png', href: 'https://tiktok.com', label: 'TikTok', hoverOpacity: 'hover:opacity-80' },
+  { icon: '/logotwiter.png', href: 'https://twitter.com', label: 'Twitter', hoverOpacity: 'hover:opacity-80' }
 ]
 
 export default function SocialLinks({ className = '' }: SocialLinksProps) {
   return (
-    <div className={`flex items-center gap-watch-6 ${className}`}>
-      {socialLinks.map((social) => {
-        const Icon = social.icon
-        return (
-          <Link
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-gray-400 transition-colors duration-200 ${social.color}`}
-            aria-label={social.label}
-          >
-            <Icon size={24} />
-          </Link>
-        )
-      })}
-    </div>
+    <nav className={`flex items-center gap-watch-6 ${className}`} aria-label="Social media links">
+      {socialLinks.map((social) => (
+        <Link
+          key={social.label}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`transition-opacity duration-200 ${social.hoverOpacity}`}
+          aria-label={social.label}
+        >
+          <Image
+            src={social.icon}
+            alt={social.label}
+            width={24}
+            height={24}
+            className="object-none"
+          />
+        </Link>
+      ))}
+    </nav>
   )
 }

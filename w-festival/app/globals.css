@@ -25,6 +25,35 @@ html {
   --color-watch-secondary-dark: #991B1B;
   --color-watch-secondary-light: #EF4444;
   
+  /* Green Color */
+  --color-watch-green: #22C55E;
+  --color-watch-green-hover: #16A34A;
+  --color-watch-green-dark: #166534;
+  
+  /* Blue Colors - Rock */
+  --color-watch-blue: #3B82F6;
+  --color-watch-blue-dark: #1E3A8A;
+  
+  /* Purple Colors - Funk */
+  --color-watch-purple: #A855F7;
+  --color-watch-purple-dark: #7E22CE;
+  
+  /* Violet Colors - Metal */
+  --color-watch-violet: #7C3AED;
+  --color-watch-violet-dark: #4C1D95;
+  
+  /* Amber Colors - Jazz */
+  --color-watch-amber: #F59E0B;
+  --color-watch-amber-dark: #B45309;
+  
+  /* Teal Colors - Indie */
+  --color-watch-teal: #14B8A6;
+  --color-watch-teal-dark: #0F766E;
+  
+  /* Pink Colors - Alternative */
+  --color-watch-pink: #EC4899;
+  --color-watch-pink-dark: #BE185D;
+  
   /* Text Colors */
   --color-watch-text-white: #FFFFFF;
   --color-watch-text-primary: #FFFFFF;
@@ -38,6 +67,7 @@ html {
   --color-watch-gray-700: #374151;
   --color-watch-gray-800: #1F2937;
   --color-watch-gray-900: #111827;
+  --color-watch-gray-card: #3D3D3F;
   
   /* Overlay Colors */
   --color-watch-overlay-light: rgba(0, 0, 0, 0.1);

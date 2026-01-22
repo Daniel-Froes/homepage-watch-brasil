@@ -50,12 +50,12 @@ export default function ArtistCarousel({
       renderItem={(item) => 
         item.isAd ? (
           <AdCard 
-            title="Nike Air Max 90 Futura"
+            title="Model 3 Standard"
             subtitle="Exclusive Product"
-            image="/tesla.png"
+            image="/teslasds.png"
             cta={{
               text: "Learn more",
-              href: "#"
+              href: "www.tesla.com/model3-choose"
             }}
           />
         ) : (

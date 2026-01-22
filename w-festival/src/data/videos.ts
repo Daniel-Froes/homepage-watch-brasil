@@ -122,25 +122,25 @@ export const yesterdayShows: ShowData[] = [
 
 export const inLiveShows: LiveShowData[] = [
   {
-    id: 'live-1',
+    id: 'inlive1',
     artist: 'Iron Maiden',
-    image: '/ironmaiden.png',
+    image: '/inlive1.svg',
     stage: 'Stage Sunset',
     time: 'dd.mm.aa - 00:00 h',
     status: 'Live'
   },
   {
-    id: 'live-2',
+    id: 'inlive2',
     artist: 'Dua Lipa',
-    image: '/dualipa.png',
+    image: '/inlive2.svg',
     stage: 'Stage World',
     time: 'dd.mm.aa - 00:00 h',
     status: 'Live'
   },
   {
-    id: 'live-3',
+    id: 'inlive3',
     artist: 'Måneskin',
-    image: '/maneskin.png',
+    image: '/inlive3.svg',
     stage: 'Stage Fiesta',
     time: 'dd.mm.aa - 00:00 h',
     status: 'Live'

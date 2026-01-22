@@ -85,7 +85,7 @@ export default function Header({
   
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-30 bg-gradient-to-b from-watch-bg-surface-alt via-watch-bg-surface-alt/60 via-55% to-transparent ${className}`}>
+      <header className={`fixed top-0 left-0 right-0 z-30 bg-linear-to-b from-watch-bg-surface-alt via-watch-bg-surface-alt/60 via-55% to-transparent ${className}`}>
         <div className="absolute inset-0 bg-watch-overlay-light"></div>
         <Container className="relative z-10">
           <div className="flex items-center justify-between h-watch-20 pt-watch-6">
@@ -106,8 +106,6 @@ export default function Header({
             <div className="hidden lg:flex items-center space-x-watch-2">
               <UserProfile 
                 name="Peter Parker"
-                avatarColor="bg-orange-500"
-                showSettings={true}
               />
             </div>
             

@@ -1,5 +1,7 @@
-import Image from 'next/image'
+import NextImage from 'next/image'
 import Text from '../../atoms/Text'
+import Button from '../../atoms/Button'
+import Overlay from '../../atoms/Overlay'
 
 interface ExclusiveContentCardProps {
   title: string
@@ -8,7 +10,10 @@ interface ExclusiveContentCardProps {
   cta?: {
     text: string
     href?: string
+    onClick?: () => void
   }
+  textAlign?: 'left' | 'center' | 'right'
+  onClick?: () => void
 }
 
 export default function ExclusiveContentCard({
@@ -16,38 +21,73 @@ export default function ExclusiveContentCard({
   subtitle,
   image,
   cta,
+  textAlign = 'left',
+  onClick
 }: ExclusiveContentCardProps) {
+  const CardWrapper = onClick ? 'button' : 'div'
+  
+  const alignClasses = {
+    left: 'text-left items-start',
+    center: 'text-center items-center',
+    right: 'text-right items-end'
+  }
+  
   return (
-    <div className="relative w-full h-56 rounded-watch-md overflow-hidden group">
-      <Image
+    <CardWrapper 
+      className="relative w-full h-56 rounded-watch-md overflow-hidden group cursor-pointer"
+      onClick={onClick}
+      {...(onClick && { type: 'button' })}
+    >
+
+      <NextImage
         src={image}
         alt={title}
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
+        sizes="(max-width: 768px) 100vw, 400px"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+      <Overlay className="from-black via-black/50 to-transparent bg-gradient-to-t" />
 
-      <div className="absolute inset-0 flex flex-col justify-between p-watch-6">
-        <div></div>
-        <div>
-          <h3 className="text-white text-2xl font-bold mb-watch-1">
+      <div className="absolute inset-0 flex flex-col justify-end p-watch-6 z-10">
+        <div className={`space-y-watch-1 w-full flex flex-col ${alignClasses[textAlign]}`}>
+          <Text 
+            variant="h3" 
+            size="exclusive-title" 
+            weight="bold"
+            color="white"
+          >
             {title}
-          </h3>
-          <Text className="text-white/80 text-sm mb-watch-4">
+          </Text>
+          
+          <Text 
+            size="exclusive-subtitle"
+            color="white"
+            className="text-white/80"
+          >
             {subtitle}
           </Text>
+          
           {cta && (
-            <a
-              href={cta.href || '#'}
-              className="inline-flex items-center gap-2 text-white bg-orange-500 hover:bg-orange-600 px-watch-4 py-watch-2 rounded-watch-md text-xs font-semibold transition-colors"
-            >
-              {cta.text}
-              <span>→</span>
-            </a>
+            <div className="pt-watch-3">
+              <Button
+                onClick={cta.href ? undefined : cta.onClick}
+                variant="orange"
+                size="sm"
+                radius="sm"
+                className="inline-flex items-center gap-watch-2"
+                {...(cta.href && {
+                  onClick: () => window.location.href = cta.href!
+                })}
+              >
+                {cta.text}
+                <span aria-hidden="true">→</span>
+              </Button>
+            </div>
           )}
         </div>
       </div>
-    </div>
+    </CardWrapper>
   )
 }
+
