@@ -8,7 +8,7 @@ import Image from 'next/image'
 interface LiveShow {
   id: string
   artist: string
-  image: string
+  image?: string
   stage: string
   time: string
   status: string
@@ -32,14 +32,15 @@ export default function LiveEventCarousel({
       renderItem={(event) => (
         <div className="group rounded-watch-lg overflow-hidden border-4 border-transparent hover:border-watch-primary transition-all duration-300 w-full h-[288px] flex flex-col mx-auto">
           <div className="relative w-full flex-1 bg-linear-to-b from-gray-600 to-gray-800">
-            <Image
-              src={event.image}
-              alt={event.artist}
-              fill
-              className="object-cover"
-            />
+            {event.image && (
+              <Image
+                src={event.image}
+                alt={(event as any).artist || ''}
+                fill
+                className="object-cover"
+              />
+            )}
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/60 transition-all duration-300"></div>
-            
             <div className="absolute top-0 left-0 right-0 h-watch-24 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-linear-to-b from-watch-overlay-heavy via-watch-overlay-medium to-transparent"></div>
             
             <div className="absolute bottom-0 left-0 right-0 h-watch-40 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-linear-to-t from-watch-overlay-heavy via-watch-overlay-dark to-transparent"></div>
@@ -64,16 +65,16 @@ export default function LiveEventCarousel({
           <div className="bg-watch-gray-card p-watch-4 shrink-0">
             <div className="flex items-start justify-between mb-watch-6">
               <Text className="text-white font-semibold text-sm">
-                {event.artist}
+                {(event as any).artist}
               </Text>
-              <StatusBadge status={event.status} />
+              <StatusBadge status={(event as any).status} />
             </div>
             <div className="flex items-center justify-between">
               <Text className="text-white/70 text-xs">
-                {event.stage}
+                {(event as any).stage}
               </Text>
               <Text className="text-white/70 text-xs">
-                {event.time}
+                {(event as any).time}
               </Text>
             </div>
           </div>

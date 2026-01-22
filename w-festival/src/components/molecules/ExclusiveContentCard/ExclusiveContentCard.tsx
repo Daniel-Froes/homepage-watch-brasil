@@ -4,9 +4,9 @@ import Button from '../../atoms/Button'
 import Overlay from '../../atoms/Overlay'
 
 interface ExclusiveContentCardProps {
-  title: string
-  subtitle: string
-  image: string
+  title?: string
+  subtitle?: string
+  image?: string
   cta?: {
     text: string
     href?: string
@@ -39,13 +39,15 @@ export default function ExclusiveContentCard({
       {...(onClick && { type: 'button' })}
     >
 
-      <NextImage
-        src={image}
-        alt={title}
-        fill
-        className="object-cover group-hover:scale-105 transition-transform duration-300"
-        sizes="(max-width: 768px) 100vw, 400px"
-      />
+      {image && (
+        <NextImage
+          src={image}
+          alt={title || ''}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+      )}
 
       <Overlay className="from-black via-black/50 to-transparent bg-gradient-to-t" />
 

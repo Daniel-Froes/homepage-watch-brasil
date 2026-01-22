@@ -37,7 +37,7 @@ export default function FestivalSlider({ festivals, showAd = true, adPosition = 
       sectionClassName=""
       showTitle={false}
       showContainer={false}
-      items={displayItems}
+      items={displayItems as any}
       itemClassName="flex-[0_0_auto]"
       inlineCarousel={true}
       customHeader={
@@ -55,7 +55,7 @@ export default function FestivalSlider({ festivals, showAd = true, adPosition = 
           </div>
         </div>
       }
-      renderItem={(item: Festival | { id: string; title: string; subtitle: string; isAd: boolean }) => 
+      renderItem={(item: any) => 
         'isAd' in item && item.isAd ? (
           <AdCard 
             title="Airpods Pro 2"

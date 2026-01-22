@@ -9,6 +9,13 @@ interface Item {
   name: string
   image: string
   isAd?: boolean
+  title?: string
+  subtitle?: string
+  cta?: {
+    text: string
+    href?: string
+    onClick?: () => void
+  }
 }
 
 interface ArtistCarouselProps {
@@ -34,8 +41,14 @@ export default function ArtistCarousel({
         {
           id: 'tesla-ad',
           name: 'Nike Air Max 90 Futura',
+          title: 'Model 3 Standard',
+          subtitle: 'Exclusive Product',
           image: '/tesla.png',
           isAd: true,
+          cta: {
+            text: 'Learn more',
+            href: 'http://www.tesla.com/model3-choose',
+          },
         },
         ...items.slice(adPosition),
       ]
@@ -45,10 +58,11 @@ export default function ArtistCarousel({
     <Carousel
       title={title}
       titlePadding={showTitlePadding}
-      items={displayItems}
+      items={displayItems as any}
       itemClassName="flex-[0_0_auto]"
-      renderItem={(item) => 
-        item.isAd ? (
+      renderItem={(item) => {
+        const typedItem = item as Item
+        return typedItem.isAd ? (
           <AdCard 
             title="Model 3 Standard"
             subtitle="Exclusive Product"
@@ -60,12 +74,12 @@ export default function ArtistCarousel({
           />
         ) : (
           <ArtistCard 
-            name={item.name} 
-            image={item.image}
+            name={typedItem.name} 
+            image={typedItem.image}
             showWatchAgainBadge={showWatchAgainBadge}
           />
         )
-      }
+      }}
     />
   )
 }

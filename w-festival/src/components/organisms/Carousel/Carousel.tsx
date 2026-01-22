@@ -17,7 +17,13 @@ export interface CarouselConfig {
   autoplayDelay?: number
 }
 
-interface CarouselProps<T = unknown> {
+interface CarouselProps<T extends { id?: string | number } = {
+  cta?: { text: string; href?: string | undefined; onClick?: (() => void) | undefined }
+  image?: string
+  subtitle?: string
+  title?: string
+  id?: string | number 
+}> {
   title?: string
   showTitle?: boolean
   titlePadding?: boolean
