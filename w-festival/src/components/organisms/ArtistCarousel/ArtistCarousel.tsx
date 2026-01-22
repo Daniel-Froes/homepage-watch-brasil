@@ -55,7 +55,7 @@ export default function ArtistCarousel({
             image="/teslasds.png"
             cta={{
               text: "Learn more",
-              href: "www.tesla.com/model3-choose"
+              href: "http://www.tesla.com/model3-choose"
             }}
           />
         ) : (

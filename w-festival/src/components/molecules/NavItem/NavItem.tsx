@@ -107,7 +107,7 @@ export default function NavItem({
     return (
       <div 
         ref={dropdownRef}
-        className="relative z-50"
+        className="relative group"
         onMouseEnter={() => setIsDropdownOpen(true)}
         onMouseLeave={() => setIsDropdownOpen(false)}
       >
@@ -123,18 +123,20 @@ export default function NavItem({
         </Link>
         
         {isDropdownOpen && (
-          <div className="absolute top-full left-0 mt-watch-2 bg-watch-bg-primary border-2 border-watch-primary rounded-watch-lg shadow-2xl min-w-50 py-watch-3 z-100 backdrop-blur-sm">
-            {dropdownItems.map((item, index) => (
-              <Link
-                key={index}
-                href={item.href}
-                onClick={onClick}
-                className="block px-watch-4 py-watch-3 text-watch-text-white hover:text-watch-primary hover:bg-watch-white-10 transition-colors text-sm font-watch-medium"
-                style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="absolute top-full left-0 pt-watch-2 z-[9999]">
+            <div className="bg-watch-bg-primary border-2 border-watch-primary rounded-watch-lg shadow-2xl min-w-50 py-watch-3 backdrop-blur-sm">
+              {dropdownItems.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  onClick={onClick}
+                  className="block px-watch-4 py-watch-3 text-watch-text-white hover:text-watch-primary hover:bg-watch-white-10 transition-colors text-sm font-watch-medium whitespace-nowrap"
+                  style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         )}
       </div>

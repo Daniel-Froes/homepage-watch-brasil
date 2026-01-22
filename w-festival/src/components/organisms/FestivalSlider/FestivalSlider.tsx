@@ -4,6 +4,8 @@ import Carousel from '../Carousel'
 import FestivalCard from '../../molecules/FestivalCard'
 import AdCard from '../../molecules/AdCard'
 import Button from '../../atoms/Button'
+import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import { Festival } from '@/src/data/festivals'
 
 interface FestivalSliderProps {
@@ -13,40 +15,44 @@ interface FestivalSliderProps {
 }
 
 export default function FestivalSlider({ festivals, showAd = true, adPosition = 2 }: FestivalSliderProps) {
+  const filteredFestivals = festivals.filter(festival => festival.image)
+
   const displayItems = showAd
     ? [
-        ...festivals.slice(0, adPosition),
+        ...filteredFestivals.slice(0, adPosition),
         {
           id: 'airpods-pro-2',
           title: 'Airpods Pro 2',
           subtitle: 'Exclusive Product',
           isAd: true,
         },
-        ...festivals.slice(adPosition),
+        ...filteredFestivals.slice(adPosition),
       ]
-    : festivals
+    : filteredFestivals
 
   return (
     <Carousel
       background="watch-bg-secondary"
       padding="lg"
-      sectionClassName="overflow-hidden"
+      sectionClassName=""
       showTitle={false}
       showContainer={false}
       items={displayItems}
       itemClassName="flex-[0_0_auto]"
       inlineCarousel={true}
       customHeader={
-        <div className="shrink-0 md:w-watch-64">
-          <h2 className="text-white text-2xl font-bold mb-watch-4">
-            Festival for you
-          </h2>
-          <p className="text-white/70 text-sm mb-watch-6">
-            Explore your favorite genres and discover new rhythms to love!
-          </p>
-          <Button variant="orange" size="sm">
-            See All
-          </Button>
+        <div className="shrink-0 md:w-watch-64 flex items-start max-w-[280px] md:max-w-none">
+          <div>
+            <Heading level={2} className="mb-watch-4 text-xl md:text-2xl">
+              Festival for you
+            </Heading>
+            <Text variant="p" size="md" color="gray" className="mb-watch-6 md:text-sm">
+              Explore your favorite genres and discover new rhythms to love!
+            </Text>
+            <Button variant="orange" size="sm" radius="2xl">
+              See All
+            </Button>
+          </div>
         </div>
       }
       renderItem={(item: any) => 

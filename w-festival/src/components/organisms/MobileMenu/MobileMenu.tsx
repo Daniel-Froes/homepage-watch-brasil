@@ -69,7 +69,7 @@ export default function MobileMenu({
           isOpen ? 'translate-y-0' : '-translate-y-full'
         } ${className}`}
       >
-        <div className="sticky top-0 flex items-center justify-between py-watch-6 border-b border-white/10 bg-watch-bg-primary">
+        <div className="sticky top-0 flex items-center justify-between px-watch-2 py-watch-6 border-b border-white/10 bg-watch-bg-primary">
           <Logo 
             src={logoSrc} 
             alt={logoAlt}

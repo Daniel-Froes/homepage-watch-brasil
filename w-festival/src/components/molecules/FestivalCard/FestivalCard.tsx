@@ -24,7 +24,7 @@ export default function FestivalCard({
   
   return (
     <CardWrapper 
-      className="w-watch-52 h-watch-52 rounded-watch-lg cursor-pointer border-4 border-watch-bg-primary hover:border-watch-primary relative overflow-hidden transition-colors duration-300"
+      className="w-watch-52 h-watch-52 rounded-watch-lg cursor-pointer border-4 border-watch-bg-primary hover:border-watch-primary relative transition-colors duration-300"
       style={{ background }}
       onClick={onClick}
       {...(onClick && { type: 'button' })}

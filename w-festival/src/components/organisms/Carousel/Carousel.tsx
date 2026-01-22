@@ -110,18 +110,18 @@ export default function Carousel({
   if (inlineCarousel && customHeader) {
     return (
       <Section background={background} padding={padding} className={sectionClassName}>
-        <div className="flex flex-col md:flex-row gap-watch-6 items-start md:items-center w-[calc(100%-112px)] md:w-[calc(100%-80px)] lg:w-[calc(100%-112px)] mx-auto">
-          {customHeader}
+        <div className="md:flex md:gap-watch-6 md:items-start md:items-center md:w-[calc(100%-80px)] lg:w-[calc(100%-112px)] md:mx-auto">
+          <div className="w-[calc(100%-112px)] mx-auto md:w-auto md:mx-0">
+            {customHeader}
+          </div>
           
-          <div className="flex-1 w-full">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className={`flex ${gapClasses[gap]} ${containerClassName}`}>
-                {items.map((item, index) => (
-                  <div key={item.id || index} className={itemClassName}>
-                    {renderItem(item, index)}
-                  </div>
-                ))}
-              </div>
+          <div className="overflow-hidden md:flex-1" ref={emblaRef}>
+            <div className={`flex ${gapClasses[gap]} ${containerClassName} w-[calc(100%-112px)] mx-auto md:w-auto md:mx-0`}>
+              {items.map((item, index) => (
+                <div key={item.id || index} className={itemClassName}>
+                  {renderItem(item, index)}
+                </div>
+              ))}
             </div>
           </div>
         </div>
