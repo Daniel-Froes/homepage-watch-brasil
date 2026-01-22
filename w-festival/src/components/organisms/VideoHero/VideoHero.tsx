@@ -1,6 +1,6 @@
 'use client'
 
-import { Grid2X2, Maximize, Volume2, Settings, VideoOff, Video } from 'lucide-react'
+import { Grid2X2, Maximize, Volume2, Settings, Video } from 'lucide-react'
 import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
 import Button from '../../atoms/Button'

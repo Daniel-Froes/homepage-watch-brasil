@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface AppStoreBadgesProps {
   className?: string
@@ -13,7 +14,7 @@ export default function AppStoreBadges({ className = '' }: AppStoreBadgesProps) 
         rel="noopener noreferrer"
         className="inline-block"
       >
-        <img 
+        <Image 
           src="/googleplay.png" 
           alt="Get it on Google Play"
           width={136}
@@ -27,7 +28,7 @@ export default function AppStoreBadges({ className = '' }: AppStoreBadgesProps) 
         rel="noopener noreferrer"
         className="inline-block"
       >
-        <img 
+        <Image 
           src="/appstore.png" 
           alt="Download on App Store"
           width={136}

@@ -55,8 +55,8 @@ export default function FestivalSlider({ festivals, showAd = true, adPosition = 
           </div>
         </div>
       }
-      renderItem={(item: any) => 
-        item.isAd ? (
+      renderItem={(item: Festival | { id: string; title: string; subtitle: string; isAd: boolean }) => 
+        'isAd' in item && item.isAd ? (
           <AdCard 
             title="Airpods Pro 2"
             subtitle="Exclusive Product"

@@ -3,7 +3,6 @@
 import Carousel from '../Carousel'
 import Text from '../../atoms/Text'
 import StatusBadge from '../../atoms/StatusBadge'
-import Button from '../../atoms/Button'
 import Image from 'next/image'
 
 interface LiveShow {

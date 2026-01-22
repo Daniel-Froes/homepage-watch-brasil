@@ -13,9 +13,7 @@ interface FestivalCardProps {
 
 export default function FestivalCard({ 
   title, 
-  subtitle, 
   background, 
-  textColor = 'white',
   svgSrc,
   imageSrc,
   onClick

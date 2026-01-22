@@ -17,15 +17,15 @@ export interface CarouselConfig {
   autoplayDelay?: number
 }
 
-interface CarouselProps {
+interface CarouselProps<T = unknown> {
   title?: string
   showTitle?: boolean
   titlePadding?: boolean
   background?: string
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
   config?: CarouselConfig
-  renderItem: (item: any, index: number) => ReactNode
-  items: any[]
+  renderItem: (item: T, index: number) => ReactNode
+  items: T[]
   itemClassName?: string
   containerClassName?: string
   gap?: 'sm' | 'md' | 'lg'

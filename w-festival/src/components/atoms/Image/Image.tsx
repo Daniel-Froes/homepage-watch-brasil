@@ -1,13 +1,16 @@
 'use client'
 
-import { ImgHTMLAttributes, useState } from 'react'
+import NextImage from 'next/image'
+import { useState } from 'react'
 
-interface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'className'> {
+interface ImageProps {
   src: string
   alt: string
   fallbackSrc?: string
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
   className?: string
+  width?: number
+  height?: number
 }
 
 export default function Image({ 
@@ -16,7 +19,8 @@ export default function Image({
   fallbackSrc,
   objectFit = 'cover',
   className = '',
-  ...props 
+  width,
+  height
 }: ImageProps) {
   const [error, setError] = useState(false)
 
@@ -35,12 +39,14 @@ export default function Image({
 
   return (
     <div className="relative w-full h-full">
-      <img
+      <NextImage
         src={imageSrc}
         alt={alt}
+        fill={!width && !height}
+        width={width}
+        height={height}
         onError={handleError}
         className={`w-full h-full ${objectFitClass} ${className}`}
-        {...props}
       />
     </div>
   )
